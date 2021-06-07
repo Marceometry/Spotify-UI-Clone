@@ -1,5 +1,5 @@
 <h1 align="center">
-  <img alt="Spotify" src="public/logo-spotify.png" width="30%">
+  <img alt="Spotify" src="public/logo-svg.svg" width="30%">
 </h1>
 
 <p align="center">
@@ -25,7 +25,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 ## 💻 Projeto
 
-<h4> Acesse em: https://netflix-ui-clone-marcelino.vercel.app </h4>
+<h4> Acesse em: https://spotify-ui-clone.vercel.app </h4>
 
 O projeto consiste em um clone da interface do site dao [Spotify](https://spotify.com).
 
