@@ -13,5 +13,10 @@
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "sass": "^1.34.1"
+  },
+  "devDependencies": {
+    "@types/nprogress": "^0.2.0",
+    "@types/react": "^17.0.9",
+    "typescript": "^4.3.2"
   }
 }
