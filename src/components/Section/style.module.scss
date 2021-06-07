@@ -1,0 +1,51 @@
+.container {
+    width: 100%;
+    padding: 4.5rem calc((100vw - 1170px) / 2);
+    background: #9bf0e1;
+    display: flex;
+    justify-content: space-between;
+
+    div {
+        color: var(--blue);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        span {
+            font-size: .875rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        h1 {
+            font-size: 3.75rem;
+        }
+
+        p {
+            font-size: 1.5rem;
+        }
+
+        a {
+            width: fit-content;
+            padding: 1rem 3rem;
+            color: var(--white);
+            background: var(--blue);
+            border-radius: 25px;
+
+            font-size: .875rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            transition-property: transform, filter;
+            transition-duration: .2s;
+
+            &:hover {
+                filter: brightness(1.2);
+                transform: scale(1.05);
+            }
+        }
+    }
+    
+    img {
+        width: 400px;
+    }
+}
