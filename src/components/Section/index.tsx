@@ -1,20 +1,33 @@
 import Link from 'next/link'
 import styles from './style.module.scss'
 
-export default function Section() {
+type SectionProps = {
+  type: string
+  h1: string
+  p: string
+  a: string
+  img: boolean
+  hasBG: boolean
+}
+
+export default function Section({ type, h1, p, a, img, hasBG }: SectionProps) {
   return (
-    <section className={styles.container}>
+    <section className={`${styles.container} ${hasBG ? styles.blue : ''}`}>
         <div>
-            <span>SPOTIFY PREMIUM</span>
+            <span>SPOTIFY {type}</span>
 
-            <h1>Curta 3 meses de Premium grátis</h1>
+            <h1>{h1}</h1>
 
-            <p>Curta músicas sem anúncios, no modo offline e muito mais. Cancele quando quiser.</p>
+            <p>{p}</p>
 
-            <Link href="/"><a>GANHE 3 MESES GRÁTIS</a></Link>
+            <Link href="/"><a>{a}</a></Link>
         </div>
 
-        <img src="/hands.png" alt="Ilustração" />
+        {!hasBG ? (
+          <img src="/hands.png" alt="Ilustração" />
+        ) : (
+          <div className={styles.placeholder}></div>
+        )}
     </section>
   )
 }

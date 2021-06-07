@@ -1,8 +1,11 @@
 :root {
   --white: #fff;
   --black: #000;
+  --gray: #919496;
+  --gray-dark: #222326;
   --green: #1ed760;
   --blue: #2d46b9;
+  --ice: #9bf0e1;
 }
 
 * {
@@ -35,4 +38,17 @@ ul {
 #nprogress .bar {
   background: var(--green);
   height: 3px;
+}
+
+/* responsive fonts */
+@media(max-width: 1080px) {
+    html {
+        font-size: 93.75%;
+    }
+}
+
+@media(max-width: 768px) {
+    html {
+        font-size: 87.5%;
+    }
 }

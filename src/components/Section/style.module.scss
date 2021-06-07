@@ -1,12 +1,28 @@
 .container {
     width: 100%;
     padding: 4.5rem calc((100vw - 1170px) / 2);
-    background: #9bf0e1;
+    color: var(--blue);
+    background: var(--ice);
     display: flex;
     justify-content: space-between;
 
+    &.blue {
+        background: var(--blue) right no-repeat;
+        background-image: url('/circles-bg.svg');
+        // background-position: right;
+        color: var(--green);
+
+        div {
+            margin-bottom: 3rem;
+
+            a {
+                color: var(--blue);
+                background: var(--green);
+            }
+        }
+    }
+
     div {
-        color: var(--blue);
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -23,6 +39,7 @@
 
         p {
             font-size: 1.5rem;
+            line-height: 1.5;
         }
 
         a {
@@ -45,7 +62,9 @@
         }
     }
     
-    img {
+    img, .placeholder {
         width: 400px;
+        height: 400px;
+        margin-left: 5rem;
     }
 }
