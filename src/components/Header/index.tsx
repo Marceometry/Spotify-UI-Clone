@@ -36,7 +36,7 @@ export default function Header() {
           </Link>
         </li>
         <li>
-          <Link href="/">
+          <Link href="/home">
             <a>Entrar</a>
           </Link>
         </li>

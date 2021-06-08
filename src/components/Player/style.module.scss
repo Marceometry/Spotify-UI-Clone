@@ -1,0 +1,44 @@
+.container {
+    width: 100%;
+    padding: 1rem;
+    margin-top: 2rem;
+    background: var(--gray-10);
+    border-top: 1px solid var(--gray-20);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .song {
+        display: flex;
+        align-items: center;
+
+        .info {
+            display: inline-block;
+            margin-left: 1rem;
+
+            strong {
+                display: block;
+                font-size: .875rem;
+            }
+
+            span {
+                color: var(--gray-100);
+                font-size: .75rem;
+            }
+        }
+    }
+
+    .controls {
+        width: 600px;
+
+        .playButton {
+            width: 32px;
+            height: 32px;
+        }
+    }
+
+    .volume {
+        width: 125px;
+    }
+}

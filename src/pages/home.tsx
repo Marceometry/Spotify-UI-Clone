@@ -4,12 +4,13 @@ import Section from '../components/Section'
 import Footer from '../components/Footer'
 
 import styles from '../css/Home.module.scss'
+import Player from '../components/Player'
 
-export default function Landing() {
+export default function Home() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Escutar muda tudo - Spotify</title>
+        <title>Spotify - Web Player</title>
       </Head>
 
       <Header />
@@ -23,16 +24,7 @@ export default function Landing() {
         hasBG={false}
       />
 
-      <Section
-        type="FREE"
-        h1="Escutar muda tudo"
-        p="Milhões de músicas e podcasts para explorar. E nem precisa de cartão de crédito."
-        a="BAIXE O SPOTIFY FREE"
-        img={false}
-        hasBG={true}
-      />
-      
-      <Footer />
+      <Player />
     </div>
   )
 }

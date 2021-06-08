@@ -62,7 +62,7 @@ export default function UL() {
             </Link>
             </li>
             <li>
-            <Link href="/">
+            <Link href="/home">
                 <a> Player da Web </a>
             </Link>
             </li>

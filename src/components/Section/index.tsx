@@ -20,7 +20,7 @@ export default function Section({ type, h1, p, a, img, hasBG }: SectionProps) {
 
             <p>{p}</p>
 
-            <Link href="/"><a>{a}</a></Link>
+            <Link href="/home"><a>{a}</a></Link>
         </div>
 
         {!hasBG ? (
