@@ -1,6 +1,7 @@
 :root {
   --white: #fff;
   --black: #000;
+  --gray-5: #121212;
   --gray-10: #181818;
   --gray-20: #222326;
   --gray-50: #535353;
@@ -31,6 +32,25 @@ a {
 ul {
   list-style: none;
 }
+
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gray-50);
+  transition: .2s;
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: var(--gray-100);
+}
+
 
 #nprogress {
   position: relative;

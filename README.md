@@ -1,5 +1,5 @@
 <h1 align="center">
-  <img alt="Spotify" src="public/logo-svg.svg" width="30%">
+  <img alt="Spotify" src="public/logo.svg" width="30%">
 </h1>
 
 <p align="center">

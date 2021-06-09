@@ -1,0 +1,81 @@
+.container {
+    height: calc(100vh - (2rem + 56px));
+    width: 15rem;
+    background: var(--black);
+
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    left: 0;
+
+    .logo {
+        margin: 1.5rem 1.5rem 1rem;
+    }
+
+    ul {
+        margin: 0 .5rem;
+
+        &.main {
+            li:first-child {
+                background: var(--gray-20);
+                color: var(--white);
+            }
+        }
+
+        li {
+            border-radius: 5px;
+            color: var(--gray-100);
+            transition: color .2s;
+
+            &:hover {
+                color: var(--white);
+            }
+
+            a {
+                padding: .5rem 1rem;
+                display: flex;
+                align-items: center;
+    
+                span {
+                    margin-left: 1rem;
+                    font-weight: 600;
+                    font-size: .875rem;
+                }
+            }
+        }
+    }
+
+    .playlistsContainer {
+        height: 100%;
+        margin-top: 1.5rem;
+        overflow-y: hidden;
+
+        hr {
+            height: 1px;
+            margin: .5rem 1.5rem;
+            background: var(--gray-20);
+            border: none;
+        }
+
+        .playlists {
+            max-height: calc(100% - (6rem + 1px));
+            margin-right: 2px;
+            overflow-y: auto;
+            
+            li {
+                font-size: .75rem;
+                font-weight: 600;
+            }
+        }
+    }
+
+    #getApp {
+        a {
+            padding: .75rem 1rem;
+
+            span {
+                margin-left: .25rem;
+            }
+        }
+    }
+}

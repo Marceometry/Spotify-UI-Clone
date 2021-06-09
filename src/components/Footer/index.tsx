@@ -13,7 +13,7 @@ export default function Header() {
         <section>
           <Link href="/">
             <a>
-              <Image width={132} height={42} src="/logo-svg.svg" alt="Spotify" />
+              <Image width={132} height={42} src="/logo.svg" alt="Spotify" />
             </a>
           </Link>
 

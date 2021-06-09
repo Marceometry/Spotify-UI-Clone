@@ -7,7 +7,7 @@ export default function Header() {
     <header className={styles.container}>
       <Link href="/">
         <a>
-          <Image width={132} height={42} src="/logo-svg.svg" alt="Spotify" />
+          <Image width={132} height={42} src="/logo.svg" alt="Spotify" />
         </a>
       </Link>
 
