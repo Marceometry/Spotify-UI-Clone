@@ -1,0 +1,19 @@
+.cardsRow {
+    header {
+        margin-bottom: 1rem;
+
+        p {
+            margin-top: .375rem;
+            font-size: .75rem;
+            font-weight: 600;
+            color: var(--gray-100);
+        }
+    }
+
+    .row {
+        display: grid;
+        grid-template-columns: auto auto auto auto auto auto auto auto;
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+    }
+}

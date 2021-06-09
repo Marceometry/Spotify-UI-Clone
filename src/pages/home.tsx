@@ -4,7 +4,7 @@ import Sidebar from '../components/Sidebar'
 import Player from '../components/Player'
 
 import styles from '../css/Home.module.scss'
-import PlaylistsRow from '../components/PlaylistsRow'
+import CardsRow from '../components/CardsRow'
 
 export default function Home() {
   return (
@@ -20,8 +20,9 @@ export default function Home() {
           <Nav />
 
           <div className={styles.rowsContainer}>
-            <PlaylistsRow />
-            <PlaylistsRow />
+            <CardsRow />
+            <CardsRow />
+            <CardsRow />
           </div>
         </main>
       </div>

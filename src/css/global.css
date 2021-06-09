@@ -65,6 +65,10 @@ ul {
   height: 3px;
 }
 
+#nprogress .peg {
+  box-shadow: 0 0 10px var(--green), 0 0 5px var(--green);
+}
+
 /* responsive fonts */
 @media(max-width: 1080px) {
     html {
