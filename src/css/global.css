@@ -4,8 +4,10 @@
   --gray-5: #121212;
   --gray-10: #181818;
   --gray-20: #222326;
+  --gray-40: #333333;
   --gray-50: #535353;
   --gray-100: #919496;
+  --gray-500: #dddddd;
   --green: #1ed760;
   --blue: #2d46b9;
   --ice: #9bf0e1;
@@ -23,8 +25,10 @@ body {
   font: 1rem 'Montserrat', sans-serif;
 }
 
-a {
+button, a {
+  border: none;
   color: inherit;
+  font: inherit;
   text-decoration: none;
   cursor: pointer;
 }

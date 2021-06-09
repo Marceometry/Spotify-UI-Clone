@@ -1,12 +1,10 @@
 .container {
-    height: calc(100vh - (2rem + 56px));
+    height: 100%;
     width: 15rem;
     background: var(--black);
 
     display: flex;
     flex-direction: column;
-    position: absolute;
-    left: 0;
 
     .logo {
         margin: 1.5rem 1.5rem 1rem;

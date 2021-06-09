@@ -3,7 +3,7 @@ import Header from '../components/Header'
 import Section from '../components/Section'
 import Footer from '../components/Footer'
 
-import styles from '../css/Home.module.scss'
+import styles from '../css/index.module.css'
 
 export default function Landing() {
   return (

@@ -1,8 +1,9 @@
 import Head from 'next/head'
+import Nav from '../components/Nav'
 import Sidebar from '../components/Sidebar'
 import Player from '../components/Player'
 
-import styles from '../css/Home.module.scss'
+import styles from '../css/Home.module.css'
 
 export default function Home() {
   return (
@@ -10,8 +11,12 @@ export default function Home() {
       <Head>
         <title>Spotify - Web Player</title>
       </Head>
-
+      
       <Sidebar />
+
+      <main>
+        <Nav />
+      </main>
 
       <Player />
     </div>
