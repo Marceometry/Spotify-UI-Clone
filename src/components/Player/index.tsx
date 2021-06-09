@@ -57,7 +57,7 @@ export default function Player() {
     }
 
     return (
-        <div className={styles.container}>
+        <div className={styles.player}>
             <div className={styles.song}>
                 <Image width={56} height={56} src="/teste-img.jpg" alt="Álbum" />
 

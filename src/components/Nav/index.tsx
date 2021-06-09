@@ -5,7 +5,7 @@ import styles from './style.module.scss'
 
 export default function Nav() {
     return (
-        <nav className={styles.container}>
+        <nav className={styles.nav}>
           <div className={styles.router}>
             <NavigateBefore className={styles.disabled} />
             <NavigateNext />

@@ -6,7 +6,7 @@ import styles from './style.module.scss'
 
 export default function Sidebar() {
     return (
-        <aside className={styles.container}>
+        <aside className={styles.sidebar}>
           <Link href="/">
             <a className={styles.logo}>
               <Image width={132} height={42} src="/logo.svg" alt="Spotify" />

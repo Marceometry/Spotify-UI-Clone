@@ -8,7 +8,7 @@ import React from 'react'
 
 export default function Header() {
   return (
-    <footer className={styles.container}>
+    <footer className={styles.footer}>
       <main>
         <section>
           <Link href="/">

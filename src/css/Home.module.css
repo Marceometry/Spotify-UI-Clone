@@ -1,9 +1,17 @@
 .container {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.contentContainer {
+  width: 100%;
   height: calc(100vh - (2rem + 56px));
   background: linear-gradient(0deg, var(--gray-5), var(--gray-20));
   display: flex;
 }
 
-.container main {
+.contentContainer main {
   flex: 1;
 }

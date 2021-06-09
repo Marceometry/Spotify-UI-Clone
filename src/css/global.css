@@ -1,13 +1,13 @@
 :root {
-  --white: #fff;
-  --black: #000;
+  --black: #000000;
   --gray-5: #121212;
   --gray-10: #181818;
   --gray-20: #222326;
-  --gray-40: #333333;
+  --gray-30: #333333;
   --gray-50: #535353;
   --gray-100: #919496;
   --gray-500: #dddddd;
+  --white: #ffffff;
   --green: #1ed760;
   --blue: #2d46b9;
   --ice: #9bf0e1;
@@ -54,7 +54,6 @@ ul {
 ::-webkit-scrollbar-thumb:active {
   background: var(--gray-100);
 }
-
 
 #nprogress {
   position: relative;

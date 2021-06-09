@@ -12,11 +12,13 @@ export default function Home() {
         <title>Spotify - Web Player</title>
       </Head>
       
-      <Sidebar />
+      <div className={styles.contentContainer}>
+        <Sidebar />
 
-      <main>
-        <Nav />
-      </main>
+        <main>
+          <Nav />
+        </main>
+      </div>
 
       <Player />
     </div>

@@ -6,11 +6,10 @@ type SectionProps = {
   h1: string
   p: string
   a: string
-  img: boolean
   hasBG: boolean
 }
 
-export default function Section({ type, h1, p, a, img, hasBG }: SectionProps) {
+export default function Section({ type, h1, p, a, hasBG }: SectionProps) {
   return (
     <section className={`${styles.container} ${hasBG ? styles.blue : ''}`}>
         <div>

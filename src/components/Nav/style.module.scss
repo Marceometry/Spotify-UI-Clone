@@ -1,4 +1,4 @@
-.container {
+.nav {
     width: 100%;
     padding: .875rem 1rem;
     display: flex;
@@ -56,14 +56,14 @@
         align-items: center;
 
         &:hover {
-            background: var(--gray-40)
+            background: var(--gray-30)
         }
 
         svg:first-child {
             width: 2rem;
             height: 2rem;
             padding: .25rem;
-            background: var(--gray-40);
+            background: var(--gray-30);
             border-radius: 50%;
         }
 

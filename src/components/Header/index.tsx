@@ -4,7 +4,7 @@ import styles from './style.module.scss'
 
 export default function Header() {
   return (
-    <header className={styles.container}>
+    <header className={styles.header}>
       <Link href="/">
         <a>
           <Image width={132} height={42} src="/logo.svg" alt="Spotify" />
