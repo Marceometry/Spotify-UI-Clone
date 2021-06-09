@@ -1,4 +1,10 @@
 .container {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  .landingSection {
     width: 100%;
     padding: 4.5rem calc((100vw - 1170px) / 2);
     color: var(--blue);
@@ -9,7 +15,6 @@
     &.blue {
         background: var(--blue) right no-repeat;
         background-image: url('/circles-bg.svg');
-        // background-position: right;
         color: var(--green);
 
         div {
@@ -67,4 +72,20 @@
         height: 400px;
         margin-left: 5rem;
     }
+  }
+}
+
+.contentContainer {
+  width: 100%;
+  height: calc(100vh - (2rem + 56px));
+  background: linear-gradient(0deg, var(--gray-5), var(--gray-20));
+  display: flex;
+  
+  main {
+    flex: 1;
+
+    .rowsContainer {
+        padding: 1.5rem 2rem;
+    }
+  }
 }

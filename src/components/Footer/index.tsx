@@ -1,6 +1,5 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import FooterNav from '../FooterNav'
 import { Instagram, Twitter, Facebook, Public } from '@material-ui/icons'
 
 import styles from './style.module.scss'
@@ -11,25 +10,93 @@ export default function Header() {
     <footer className={styles.footer}>
       <main>
         <section>
-          <Link href="/">
+          <Link href="/home">
             <a>
               <Image width={132} height={42} src="/logo.svg" alt="Spotify" />
             </a>
           </Link>
 
-          <FooterNav />
+          <ul>
+            <li>EMPRESA</li>
+
+            <li>
+              <Link href="/home">
+                <a> Sobre </a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/home">
+                <a> Empregos </a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/home">
+                <a> For the Record </a>
+              </Link>
+            </li>
+          </ul>
+
+          <ul>
+            <li>COMUNIDADES</li>
+
+            <li>
+              <Link href="/home">
+                <a> Para Artistas </a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/home">
+                <a> Desenvolvedores </a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/home">
+                <a> Publicidade </a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/home">
+                <a> Investidores </a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/home">
+                <a> Fornecedores </a>
+              </Link>
+            </li>
+          </ul>
+
+          <ul>
+            <li>LINKS ÚTEIS</li>
+
+            <li>
+              <Link href="/home">
+                <a> Suporte </a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/home">
+                <a> Player da Web </a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/home">
+                <a> Aplicativo móvel grátis </a>
+              </Link>
+            </li>
+          </ul>
         </section>
 
         <div className={styles.social}>
-          <a href="/">
+          <a href="/home">
             <Instagram />
           </a>
 
-          <a href="/">
+          <a href="/home">
             <Twitter />
           </a>
 
-          <a href="/">
+          <a href="/home">
             <Facebook />
           </a>
         </div>
@@ -38,28 +105,28 @@ export default function Header() {
       <div className={styles.bottom}>
         <ul>
           <li>
-            <Link href="/">
-            <a> Legal </a>
+            <Link href="/home">
+              <a> Legal </a>
             </Link>
           </li>
           <li>
-            <Link href="/">
-            <a> Centro de Privacidade </a>
+            <Link href="/home">
+              <a> Centro de Privacidade </a>
             </Link>
           </li>
           <li>
-            <Link href="/">
-            <a> Política de Privacidade </a>
+            <Link href="/home">
+              <a> Política de Privacidade </a>
             </Link>
           </li>
           <li>
-            <Link href="/">
-            <a> Cookies </a>
+            <Link href="/home">
+              <a> Cookies </a>
             </Link>
           </li>
           <li>
-            <Link href="/">
-            <a> Sobre Anúncios </a>
+            <Link href="/home">
+              <a> Sobre Anúncios </a>
             </Link>
           </li>
         </ul>

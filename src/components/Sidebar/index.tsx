@@ -22,14 +22,14 @@ export default function Sidebar() {
               </Link>
             </li>
             <li>
-              <Link href="">
+              <Link href="/">
                 <a>
                   <Search /> <span>Buscar</span>
                 </a>
               </Link>
             </li>
             <li>
-              <Link href="">
+              <Link href="/">
                 <a>
                   <MenuBook /> <span>Sua Biblioteca</span>
                 </a>
@@ -40,14 +40,14 @@ export default function Sidebar() {
           <div className={styles.playlistsContainer}>
             <ul>
               <li>
-                <Link href="">
+                <Link href="/">
                   <a>
                     <AddBox /> <span>Criar playlist</span>
                   </a>
                 </Link>
               </li>
               <li>
-                <Link href="">
+                <Link href="/">
                   <a>
                     <Favorite /> <span>Músicas Curtidas</span>
                   </a>
@@ -59,102 +59,102 @@ export default function Sidebar() {
 
             <ul className={styles.playlists}>
               <li>
-                <Link href="">
+                <Link href="/">
                   <a>This Is Metallica</a>
                 </Link>
               </li>
               <li>
-                <Link href="">
+                <Link href="/">
                   <a>This Is Queen</a>
                 </Link>
               </li>
               <li>
-                <Link href="">
+                <Link href="/">
                   <a>This Is ACDC</a>
                 </Link>
               </li>
               <li>
-                <Link href="">
+                <Link href="/">
                   <a>This Is Avenged Sevenfold</a>
                 </Link>
               </li>
               <li>
-                <Link href="">
+                <Link href="/">
                   <a>This Is Metallica</a>
                 </Link>
               </li>
               <li>
-                <Link href="">
+                <Link href="/">
                   <a>This Is Queen</a>
                 </Link>
               </li>
               <li>
-                <Link href="">
+                <Link href="/">
                   <a>This Is ACDC</a>
                 </Link>
               </li>
               <li>
-                <Link href="">
+                <Link href="/">
                   <a>This Is Avenged Sevenfold</a>
                 </Link>
               </li>
               <li>
-                <Link href="">
+                <Link href="/">
                   <a>This Is Metallica</a>
                 </Link>
               </li>
               <li>
-                <Link href="">
+                <Link href="/">
                   <a>This Is Queen</a>
                 </Link>
               </li>
               <li>
-                <Link href="">
+                <Link href="/">
                   <a>This Is ACDC</a>
                 </Link>
               </li>
               <li>
-                <Link href="">
+                <Link href="/">
                   <a>This Is Avenged Sevenfold</a>
                 </Link>
               </li>
               <li>
-                <Link href="">
+                <Link href="/">
                   <a>This Is Metallica</a>
                 </Link>
               </li>
               <li>
-                <Link href="">
+                <Link href="/">
                   <a>This Is Queen</a>
                 </Link>
               </li>
               <li>
-                <Link href="">
+                <Link href="/">
                   <a>This Is ACDC</a>
                 </Link>
               </li>
               <li>
-                <Link href="">
+                <Link href="/">
                   <a>This Is Avenged Sevenfold</a>
                 </Link>
               </li>
               <li>
-                <Link href="">
+                <Link href="/">
                   <a>This Is Metallica</a>
                 </Link>
               </li>
               <li>
-                <Link href="">
+                <Link href="/">
                   <a>This Is Queen</a>
                 </Link>
               </li>
               <li>
-                <Link href="">
+                <Link href="/">
                   <a>This Is ACDC</a>
                 </Link>
               </li>
               <li>
-                <Link href="">
+                <Link href="/">
                   <a>This Is Avenged Sevenfold</a>
                 </Link>
               </li>
@@ -163,7 +163,7 @@ export default function Sidebar() {
 
           <ul id={styles.getApp}>
             <li>
-              <Link href="">
+              <Link href="/">
                 <a>
                   <GetApp /> <span>Instalar aplicativo</span>
                 </a>
