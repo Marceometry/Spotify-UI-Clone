@@ -78,7 +78,7 @@
 .contentContainer {
   width: 100%;
   height: calc(100vh - (2rem + 56px));
-  background: var(--gray-5);
+  background: linear-gradient(to top, var(--gray-5), #222222);
   display: flex;
   overflow-y: hidden;
   
