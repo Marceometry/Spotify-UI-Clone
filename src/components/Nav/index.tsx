@@ -34,22 +34,22 @@ export default function Nav() {
           <ul className={styles.userPopUp}>
             <li>
               <Link href="/">
-                <a> Conta </a>
+                <a> <span>Conta</span>  <img src="/external-link.svg" /> </a>
               </Link>
             </li>
             <li>
               <Link href="/">
-                <a> Perfil </a>
+                <a> <span>Perfil</span>  </a>
               </Link>
             </li>
             <li>
               <Link href="/">
-                <a> Faça upgrade para o Premium </a>
+                <a> <span>Faça upgrade para o Premium</span>  <img src="/external-link.svg" /> </a>
               </Link>
             </li>
             <li>
               <Link href="/">
-                <a> Sair </a>
+                <a> <span>Sair</span>  </a>
               </Link>
             </li>
           </ul>
