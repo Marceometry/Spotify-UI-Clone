@@ -78,12 +78,14 @@
 .contentContainer {
   width: 100%;
   height: calc(100vh - (2rem + 56px));
-  background: linear-gradient(to top, var(--gray-5), #222222);
+  background: linear-gradient(to top, #121212, #121212, #131313, #181818, #222222);
   display: flex;
   overflow-y: hidden;
   
   main {
     flex: 1;
+    padding-top: 4rem;
+    position: relative;
     overflow-y: auto;
 
     .rowsContainer {

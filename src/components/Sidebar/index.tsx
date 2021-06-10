@@ -80,82 +80,82 @@ export default function Sidebar() {
               </li>
               <li>
                 <Link href="/">
-                  <a>This Is Metallica</a>
+                  <a>This Is Guns and Roses</a>
                 </Link>
               </li>
               <li>
                 <Link href="/">
-                  <a>This Is Queen</a>
+                  <a>This Is Rolling Stones</a>
                 </Link>
               </li>
               <li>
                 <Link href="/">
-                  <a>This Is ACDC</a>
+                  <a>This Is Nirvana</a>
                 </Link>
               </li>
               <li>
                 <Link href="/">
-                  <a>This Is Avenged Sevenfold</a>
+                  <a>This Is System of a Down</a>
                 </Link>
               </li>
               <li>
                 <Link href="/">
-                  <a>This Is Metallica</a>
+                  <a>This Is Creedence</a>
                 </Link>
               </li>
               <li>
                 <Link href="/">
-                  <a>This Is Queen</a>
+                  <a>This Is Scorpions</a>
                 </Link>
               </li>
               <li>
                 <Link href="/">
-                  <a>This Is ACDC</a>
+                  <a>This Is Beatles</a>
                 </Link>
               </li>
               <li>
                 <Link href="/">
-                  <a>This Is Avenged Sevenfold</a>
+                  <a>This Is Led Zeppelin</a>
                 </Link>
               </li>
               <li>
                 <Link href="/">
-                  <a>This Is Metallica</a>
+                  <a>This Is Red Hot Chili Peppers</a>
                 </Link>
               </li>
               <li>
                 <Link href="/">
-                  <a>This Is Queen</a>
+                  <a>This Is Disturbed</a>
                 </Link>
               </li>
               <li>
                 <Link href="/">
-                  <a>This Is ACDC</a>
+                  <a>This Is Imagine Dragons</a>
                 </Link>
               </li>
               <li>
                 <Link href="/">
-                  <a>This Is Avenged Sevenfold</a>
+                  <a>This Is Green Day</a>
                 </Link>
               </li>
               <li>
                 <Link href="/">
-                  <a>This Is Metallica</a>
+                  <a>This Is Deep Purple</a>
                 </Link>
               </li>
               <li>
                 <Link href="/">
-                  <a>This Is Queen</a>
+                  <a>This Is Pink Floyd</a>
                 </Link>
               </li>
               <li>
                 <Link href="/">
-                  <a>This Is ACDC</a>
+                  <a>This Is Slipknot</a>
                 </Link>
               </li>
               <li>
                 <Link href="/">
-                  <a>This Is Avenged Sevenfold</a>
+                  <a>This Is Megadeth</a>
                 </Link>
               </li>
             </ul>

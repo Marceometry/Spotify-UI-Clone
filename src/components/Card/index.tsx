@@ -17,7 +17,7 @@ export default function Card() {
                 </div>
 
                 <strong>Daily Mix 1</strong>
-                <p>Metallica, Sabaton, ACDC e mais</p>
+                <p>Metallica, Scorpions, ACDC e mais</p>
             </a>
         </Link>
         </>

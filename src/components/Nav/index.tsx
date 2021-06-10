@@ -5,7 +5,7 @@ import { NavigateBefore, NavigateNext, Person, ArrowDropDown, ArrowDropUp } from
 
 import styles from "./style.module.scss"
 
-export default function Nav() {
+export default function Nav({ hasBG }) {
   const [isUserPopUpOpen, setIsUserPopUpOpen] = useState(false)
   const ref = useRef(null)
 
@@ -14,20 +14,20 @@ export default function Nav() {
   }
 
   useEffect(() => {
-      function handleClickOutside(event) {
-          if (ref.current && !ref.current.contains(event.target)) {
-              setIsUserPopUpOpen(false)
-          }
+    function handleClickOutside(event) {
+      if (ref.current && !ref.current.contains(event.target)) {
+        setIsUserPopUpOpen(false)
       }
+    }
 
-      document.addEventListener("mousedown", handleClickOutside)
-      return () => {
-          document.removeEventListener("mousedown", handleClickOutside)
-      }
+    document.addEventListener("mousedown", handleClickOutside)
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside)
+    }
   }, [ref])
 
   return (
-    <nav className={styles.nav}>
+    <nav className={`${styles.nav} ${hasBG ? styles.bg : ''}`}>
       <div className={styles.router}>
         <NavigateBefore className={styles.disabled} />
         <NavigateNext />
