@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import Card from '../Card'
 import styles from './style.module.scss'
 
@@ -10,7 +11,7 @@ export default function CardsRow() {
                     <p>Quanto mais você escutar, melhores recomendações vai receber.</p>
                 </div>
 
-                <span>VER TUDO</span>
+                <Link href="/"><a>VER TUDO</a></Link>
             </header>
 
             <div className={styles.row}>
