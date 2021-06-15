@@ -1,4 +1,6 @@
 .cardsRow {
+    margin-bottom: 2rem;
+
     header {
         margin-bottom: 1rem;
         position: relative;
@@ -27,8 +29,10 @@
 
     .row {
         display: grid;
-        grid-template-columns: auto auto auto auto auto auto auto auto;
-        gap: 1.5rem;
-        margin-bottom: 2rem;
+        grid-template-columns: repeat(auto-fill,minmax(180px,1fr));
+        grid-template-rows: 1fr;
+        grid-auto-rows: 0;
+        column-gap: 1.5rem;
+        overflow-y: hidden;
     }
 }
