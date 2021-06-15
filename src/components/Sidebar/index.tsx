@@ -15,7 +15,7 @@ export default function Sidebar() {
 
           <ul className={styles.main}>
             <li>
-              <Link href="/home">
+              <Link href="/">
                 <a>
                   <Home /> <span>Início</span>
                 </a>

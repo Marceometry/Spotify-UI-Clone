@@ -1,3 +1,5 @@
+import AppContainer from '../components/AppContainer'
+
 import Router from 'next/router'
 import Nprogress from 'nprogress'
 import 'nprogress/nprogress.css'
@@ -21,6 +23,10 @@ Router.events.on('routeChangeError', () => {
   Nprogress.done()
 })
 
-export default function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+export default function MyApp({ Component, pageProps }) {  
+  return (    
+    <AppContainer>
+        <Component {...pageProps} />
+    </AppContainer>
+  )
 }

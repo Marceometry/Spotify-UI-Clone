@@ -1,18 +1,16 @@
-import { useState, useEffect, useRef } from 'react'
-import Head from 'next/head'
-import Nav from '../components/Nav'
-import Sidebar from '../components/Sidebar'
-import Player from '../components/Player'
+import { useEffect, useRef, useState } from 'react'
 
-import styles from '../css/Home.module.scss'
-import CardsRow from '../components/CardsRow'
+import Nav from '../Nav'
+import Sidebar from '../Sidebar'
+import Player from '../Player'
 
-export default function Home() {
+import styles from './style.module.scss'
+
+export default function AppContainer({ children }) {
   const [navHasBG, setNavHasBG] = useState(false)
   const ref = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    
     const scrollListener = () => {
       if (ref.current.scrollTop > 25) {
         setNavHasBG(true)
@@ -28,21 +26,13 @@ export default function Home() {
   
   return (
     <div className={styles.container}>
-      <Head>
-        <title>Spotify - Web Player</title>
-      </Head>
-      
       <div className={styles.contentContainer}>
         <Sidebar />
 
         <Nav hasBG={navHasBG} />
         
         <main ref={ref}>
-          <div className={styles.rowsContainer}>
-            <CardsRow />
-            <CardsRow />
-            <CardsRow />
-          </div>
+            { children }
         </main>
       </div>
 
