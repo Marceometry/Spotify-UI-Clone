@@ -1,12 +1,13 @@
 import CardsRow from '../components/CardsRow'
+import { fakeData } from '../utils/fakedata'
 import styles from '../css/Home.module.scss'
 
 export default function Home() {  
   return (
     <div className={styles.rowsContainer}>
-      <CardsRow type="playlist" />
-      <CardsRow type="artist" />
-      <CardsRow type="playlist" />
+      {fakeData.map((item, key) => (
+        <CardsRow data={item} key={key} />
+      ))}
     </div>
   )
 }
