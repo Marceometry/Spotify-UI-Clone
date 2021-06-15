@@ -8,7 +8,7 @@ export default function Card({ item, type }) {
         <>
         <Link href="/">
             <a className={styles.card}>
-                <div className={`${styles.img} ${type === "artist" && styles.artistImg}`}>
+                <div className={`${styles.img} ${type === "artists" && styles.artistImg}`}>
                     <img src={item.image === "" ? '/music-note.png' : item.image} alt="Imagem" />
 
                     <div className={styles.playIcon}>
@@ -17,7 +17,7 @@ export default function Card({ item, type }) {
                 </div>
 
                 <strong>{item.title}</strong>
-                <p><span>{type === "artist" ? item.subtitle : reduceStringLength(item.subtitle, 45)}</span></p>
+                <p><span>{type === "artists" ? "Artista" : reduceStringLength(item.subtitle, 45)}</span></p>
             </a>
         </Link>
         </>

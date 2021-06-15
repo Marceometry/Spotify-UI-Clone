@@ -18,7 +18,7 @@ export const fakeData: FakeData = [
     {
         title: "Feito para você",
         subtitle: "Quanto mais você escutar, melhores recomendações vai receber.",
-        type: "playlist",
+        type: "playlists",
         items: [
             {
                 title: "Descobertas da Semana",
@@ -73,54 +73,109 @@ export const fakeData: FakeData = [
     {
         title: "Seus artistas favoritos",
         subtitle: null,
-        type: "artist",
+        type: "artists",
         items: [
             {
                 title: "Metallica",
-                subtitle: "Artista",
+                subtitle: null,
                 image: "https://i.scdn.co/image/0c22030833eb55c14013bb36eb6a429328868c29",
                 link: "/"
             },
             {
                 title: "Metallica",
-                subtitle: "Artista",
+                subtitle: null,
                 image: "https://i.scdn.co/image/0c22030833eb55c14013bb36eb6a429328868c29",
                 link: "/"
             },
             {
                 title: "Metallica",
-                subtitle: "Artista",
+                subtitle: null,
                 image: "",
                 link: "/"
             },
             {
                 title: "Metallica",
-                subtitle: "Artista",
+                subtitle: null,
                 image: "https://i.scdn.co/image/0c22030833eb55c14013bb36eb6a429328868c29",
                 link: "/"
             },
             {
                 title: "Metallica",
-                subtitle: "Artista",
+                subtitle: null,
                 image: "",
                 link: "/"
             },
             {
                 title: "Metallica",
-                subtitle: "Artista",
+                subtitle: null,
                 image: "https://i.scdn.co/image/0c22030833eb55c14013bb36eb6a429328868c29",
                 link: "/"
             },
             {
                 title: "Metallica",
-                subtitle: "Artista",
+                subtitle: null,
                 image: "https://i.scdn.co/image/0c22030833eb55c14013bb36eb6a429328868c29",
                 link: "/"
             },
             {
                 title: "Metallica",
-                subtitle: "Artista",
+                subtitle: null,
                 image: "",
+                link: "/"
+            },
+        ]
+    },
+    {
+        title: "Lançamentos para você",
+        subtitle: "Músicas novinhas em folha dos artistas que você adora.",
+        type: "songs",
+        items: [
+            {
+                title: "One",
+                subtitle: "Metallica",
+                image: "/teste-img.jpg",
+                link: "/"
+            },
+            {
+                title: "One",
+                subtitle: "Metallica",
+                image: "/teste-img.jpg",
+                link: "/"
+            },
+            {
+                title: "One",
+                subtitle: "Metallica",
+                image: "/teste-img.jpg",
+                link: "/"
+            },
+            {
+                title: "One",
+                subtitle: "Metallica",
+                image: "/teste-img.jpg",
+                link: "/"
+            },
+            {
+                title: "One",
+                subtitle: "Metallica",
+                image: "/teste-img.jpg",
+                link: "/"
+            },
+            {
+                title: "One",
+                subtitle: "Metallica",
+                image: "/teste-img.jpg",
+                link: "/"
+            },
+            {
+                title: "One",
+                subtitle: "Metallica",
+                image: "/teste-img.jpg",
+                link: "/"
+            },
+            {
+                title: "One",
+                subtitle: "Metallica",
+                image: "/teste-img.jpg",
                 link: "/"
             },
         ]
