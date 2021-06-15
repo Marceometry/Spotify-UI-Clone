@@ -1,5 +1,5 @@
 import CardsRow from '../components/CardsRow'
-import { fakeData } from '../utils/fakedata'
+import { fakeData } from '../utils/fakeData'
 import styles from '../css/Home.module.scss'
 
 export default function Home() {  

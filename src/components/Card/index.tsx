@@ -1,5 +1,6 @@
-import { PlayArrow } from '@material-ui/icons'
 import Link from 'next/link'
+import { PlayArrow } from '@material-ui/icons'
+import reduceStringLength from '../../utils/reduceStringLength'
 import styles from './style.module.scss'
 
 export default function Card({ item, type }) {
@@ -16,7 +17,7 @@ export default function Card({ item, type }) {
                 </div>
 
                 <strong>{item.title}</strong>
-                <p>{item.subtitle}</p>
+                <p><span>{type === "artist" ? item.subtitle : reduceStringLength(item.subtitle, 45)}</span></p>
             </a>
         </Link>
         </>

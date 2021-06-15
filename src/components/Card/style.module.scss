@@ -3,7 +3,8 @@
     border-radius: 5px;
     background: var(--gray-10);
     transition: background .2s;
-    cursor: pointer;
+    text-overflow: ellipsis;
+    overflow: hidden;
 
     &:hover {
         background: var(--gray-20);
@@ -74,13 +75,19 @@
     }
 
     strong {
+        width: 100%;
         font-size: .875rem;
+        white-space: nowrap;
+        overflow: hidden;
     }
 
     p {
+        max-height: 2rem;
         margin-top: .5rem;
         font-size: .75rem;
         font-weight: 600;
         color: var(--gray-100);
+        text-overflow: ellipsis;
+        overflow: hidden;
     }
 }
