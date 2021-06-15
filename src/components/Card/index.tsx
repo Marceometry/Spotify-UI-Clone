@@ -9,7 +9,7 @@ export default function Card({ item, type }) {
         <Link href="/">
             <a className={styles.card}>
                 <div className={`${styles.img} ${type === "artists" && styles.artistImg}`}>
-                    <img src={item.image === "" ? '/music-note.png' : item.image} alt="Imagem" />
+                    <img src={!item.image ? '/music-note.png' : item.image} alt="Imagem" />
 
                     <div className={styles.playIcon}>
                         <PlayArrow />

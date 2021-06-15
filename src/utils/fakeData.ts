@@ -62,12 +62,12 @@ export const fakeData: FakeData = [
                 image: "https://dailymix-images.scdn.co/v2/img/bbdaedcf66f3a3d424633484145e1d49cce9f612/6/pt/default",
                 link: "/"
             },
-            {
-                title: "Radar de Novidades",
-                subtitle: "Confira os lançamentos dos artistas que você segue e novos singles escolhidos só pra você. Atualiza toda sexta.",
-                image: "",
-                link: "/"
-            }
+            // {
+            //     title: "Radar de Novidades",
+            //     subtitle: "Confira os lançamentos dos artistas que você segue e novos singles escolhidos só pra você. Atualiza toda sexta.",
+            //     image: null,
+            //     link: "/"
+            // }
         ]
     },
     {
@@ -90,7 +90,7 @@ export const fakeData: FakeData = [
             {
                 title: "Metallica",
                 subtitle: null,
-                image: "",
+                image: null,
                 link: "/"
             },
             {
@@ -102,7 +102,7 @@ export const fakeData: FakeData = [
             {
                 title: "Metallica",
                 subtitle: null,
-                image: "",
+                image: null,
                 link: "/"
             },
             {
@@ -116,13 +116,7 @@ export const fakeData: FakeData = [
                 subtitle: null,
                 image: "https://i.scdn.co/image/0c22030833eb55c14013bb36eb6a429328868c29",
                 link: "/"
-            },
-            {
-                title: "Metallica",
-                subtitle: null,
-                image: "",
-                link: "/"
-            },
+            }
         ]
     },
     {
@@ -171,13 +165,7 @@ export const fakeData: FakeData = [
                 subtitle: "Metallica",
                 image: "/teste-img.jpg",
                 link: "/"
-            },
-            {
-                title: "One",
-                subtitle: "Metallica",
-                image: "/teste-img.jpg",
-                link: "/"
-            },
+            }
         ]
     },
 ]
