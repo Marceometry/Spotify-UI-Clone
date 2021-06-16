@@ -70,72 +70,82 @@
             }
         }
 
-        table {
-            width: 100%;
-            text-align: left;
-            border-collapse: collapse;
+        .playlist {
+            font-size: .75rem;
+            color: var(--gray-200);
 
-            th, td {
-                padding: .5rem 0;
+            .playlistHeader, ul li {
+                padding: .5rem 2.5rem .5rem 1rem;
+                display: grid;
+                grid-template-columns: .375fr 8fr 5fr 4fr 2fr;
 
-                &:first-child {
-                    padding-left: 1.5rem;
-                }
-                
-                &:last-child {
-                    padding-right: 1.5rem;
-                }
-            }
-
-            th {
-                font-weight: 400;
-                border-bottom: 1px solid var(--gray-50);
-
-                &:last-child {
+                span:last-child {
+                    margin: auto 0;
+                    display: initial;
                     text-align: right;
                 }
-
-                svg {
-                    width: 1rem;
-                    height: 1rem;
-                }
             }
 
-            tr {
-                font-size: .75rem;
-                color: var(--gray-200);
+            .playlistHeader {
+                margin-bottom: 1rem;
+                border-bottom: 1px solid var(--gray-50);
+        
+                svg {
+                    width: 1.125rem;
+                    height: 1.125rem;
+                }
+            }
+        
+            ul li {
                 border-radius: 5px;
+                transition-property: color, background;
+                transition-duration: .2s;
+        
+                &:hover {
+                    background: rgba(68, 68, 68, 0.45);
 
-                &:not(:first-child):hover {
-                    background: var(--gray-50);
-                }
-
-                &:nth-child(2) {
-                    td {
-                        margin-top: 1rem;
+                    .album, p {
+                        color: var(--white)
                     }
-                }
 
-                td {
-                    &:nth-child(2) {
+                    .position {
+                        display: none;
+                    }
+
+                    .play {
                         display: flex;
                     }
+                }
 
-                    &:last-child {
-                        text-align: right;
+                .play {
+                    height: 0;
+                    margin: auto 0;
+                    border-bottom: 7px solid transparent;
+                    border-top: 7px solid transparent;
+                    border-left: 7px solid var(--white);
+                    transition: border .2s;
+                    display: none;
+                }
+            
+                span {
+                    display: flex;
+                    align-items: center;
+
+                    &.position {
+                        font-weight: 600;
                     }
-
+    
                     img {
                         width: 2.5rem;
                         height: 2.5rem;
                         margin-right: 1rem;
                     }
-
+            
                     strong {
-                        font-size: 1rem;
+                        font-size: .875rem;
                         color: var(--white);
                         display: block;
-                    }                    
+                    }   
                 }
             }
         }

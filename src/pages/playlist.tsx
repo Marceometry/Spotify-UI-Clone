@@ -33,41 +33,60 @@ export default function Home() {
                     <button><MoreHoriz /></button>
                 </div>
 
-                <table className={styles.playlist}>
-                    <tr>
-                        <th>#</th>
-                        <th>TÍTULO</th>
-                        <th>ÁLBUM</th>
-                        <th>ADICIONADO EM</th>
-                        <th><Schedule /> </th>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>
-                            <img src="/black-album-paint.png" alt="Álbum" />
-                            <div>
-                                <strong>Enter Sandman (Acapella Cover)</strong>
-                                <span>Metallica</span>
-                            </div>
-                        </td>
-                        <td>Black Album (Feito no Paint)</td>
-                        <td>07 de jun. de 2021</td>
-                        <td>04:47</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>
-                            <img src="/black-album-paint.png" alt="Álbum" />
-                            <div>
-                                <strong>Nothing Else Matters</strong>
-                                <span>Metallica</span>
-                            </div>
-                        </td>
-                        <td>Black Album</td>
-                        <td>ago. de 1991</td>
-                        <td>06:28</td>
-                    </tr>
-                </table>
+                <div className={styles.playlist}>
+                    <div className={styles.playlistHeader}>
+                        <span>#</span>
+                        <span>TÍTULO</span>
+                        <span>ÁLBUM</span>
+                        <span>ADICIONADO EM</span>
+                        <span><Schedule /> </span>
+                    </div>
+
+                    <ul>
+                        <li>
+                            <span className={styles.position}>1</span>
+                            <span className={styles.play}></span>
+                            <span>
+                                <img src="/black-album-paint.png" alt="Álbum" />
+                                <div>
+                                    <strong> Enter Sandman (Acapella Cover) </strong>
+                                    <p> Metallica </p>
+                                </div>
+                            </span>
+                            <span className={styles.album}>Black Album (Feito no Paint)</span>
+                            <span>07 de jun. de 2021</span>
+                            <span>04:47</span>
+                        </li>
+                        <li>
+                            <span className={styles.position}>2</span>
+                            <span className={styles.play}></span>
+                            <span>
+                                <img src="/black-album-paint.png" alt="Álbum" />
+                                <div>
+                                    <strong> Enter Sandman (Acapella Cover) </strong>
+                                    <p> Metallica </p>
+                                </div>
+                            </span>
+                            <span className={styles.album}>Black Album (Feito no Paint)</span>
+                            <span>07 de jun. de 2021</span>
+                            <span>04:47</span>
+                        </li>
+                        <li>
+                            <span className={styles.position}>3</span>
+                            <span className={styles.play}></span>
+                            <span>
+                                <img src="/black-album-paint.png" alt="Álbum" />
+                                <div>
+                                    <strong> Enter Sandman (Acapella Cover) </strong>
+                                    <p> Metallica </p>
+                                </div>
+                            </span>
+                            <span className={styles.album}>Black Album (Feito no Paint)</span>
+                            <span>07 de jun. de 2021</span>
+                            <span>04:47</span>
+                        </li>
+                    </ul>
+                </div>
             </section>
         </div>
     )
