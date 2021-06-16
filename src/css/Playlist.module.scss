@@ -1,0 +1,27 @@
+.playlistContainer {
+    header {
+        background: linear-gradient(rgb(240, 144, 184),rgba(88, 88, 88, 0.178) 100%);
+        padding: 6rem 2rem 1rem;
+        display: flex;
+
+        img {
+            width: 15rem;
+        }
+
+        div {
+            flex: 1;
+            display: flex;
+            justify-content: flex-end;
+            flex-direction: column;
+        }
+    }
+
+    section {
+        padding: 2rem;
+
+        .sectionHeader {
+            display: flex;
+            align-items: center;
+        }
+    }
+}
