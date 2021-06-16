@@ -59,16 +59,16 @@ export default function Player() {
     return (
         <div className={styles.player}>
             <div className={styles.song}>
-                <Image width={56} height={56} src="/teste-img.jpg" alt="Álbum" />
+                <Image width={56} height={56} src="/black-album-paint.png" alt="Álbum" />
 
                 <div className={styles.info}>
-                    <p>...And Justice for All</p>
+                    <p>Enter Sandman (Acapella Cover)</p>
                     <span>Metallica</span>
                 </div>
 
                 {test ? (
                   <audio
-                      src="/teste.m4a"
+                      src="/enter-sandman-acapella.mp3"
                       ref={audioRef}
                       // loop={isLooping}
                       onLoadedMetadata={setupProgressListener}
