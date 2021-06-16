@@ -125,45 +125,45 @@ export const fakeData: FakeData = [
         type: "songs",
         items: [
             {
-                title: "One",
+                title: "Enter Sandman (Acapella Cover)",
                 subtitle: "Metallica",
-                image: "/teste-img.jpg",
+                image: "/black-album-paint.png",
                 link: "/"
             },
             {
-                title: "One",
+                title: "Enter Sandman (Acapella Cover)",
                 subtitle: "Metallica",
-                image: "/teste-img.jpg",
+                image: "/black-album-paint.png",
                 link: "/"
             },
             {
-                title: "One",
+                title: "Enter Sandman (Acapella Cover)",
                 subtitle: "Metallica",
-                image: "/teste-img.jpg",
+                image: "/black-album-paint.png",
                 link: "/"
             },
             {
-                title: "One",
+                title: "Enter Sandman (Acapella Cover)",
                 subtitle: "Metallica",
-                image: "/teste-img.jpg",
+                image: "/black-album-paint.png",
                 link: "/"
             },
             {
-                title: "One",
+                title: "Enter Sandman (Acapella Cover)",
                 subtitle: "Metallica",
-                image: "/teste-img.jpg",
+                image: "/black-album-paint.png",
                 link: "/"
             },
             {
-                title: "One",
+                title: "Enter Sandman (Acapella Cover)",
                 subtitle: "Metallica",
-                image: "/teste-img.jpg",
+                image: "/black-album-paint.png",
                 link: "/"
             },
             {
-                title: "One",
+                title: "Enter Sandman (Acapella Cover)",
                 subtitle: "Metallica",
-                image: "/teste-img.jpg",
+                image: "/black-album-paint.png",
                 link: "/"
             }
         ]
