@@ -1,18 +1,38 @@
 .playlistContainer {
     header {
-        background: linear-gradient(rgb(240, 144, 184),rgba(88, 88, 88, 0.178) 100%);
-        padding: 6rem 2rem 1rem;
+        background: linear-gradient(rgb(240, 144, 184),rgba(255, 144, 185, 0.45) 100%);
+        box-shadow: 0 8px 200px 80px rgba(255, 144, 185, 0.45);
+        padding: 5.5rem 2rem 1.5rem;
         display: flex;
 
         img {
-            width: 15rem;
+            width: 14.5rem;
+            box-shadow: 0 4px 60px rgb(0 0 0 / 50%);
         }
 
         div {
+            margin-left: 1.5rem;
             flex: 1;
             display: flex;
             justify-content: flex-end;
             flex-direction: column;
+            
+            h1 {
+                font-size: 5rem;
+            }
+
+            p {
+                margin: 1rem 0;
+            }
+
+            p, span, strong {
+                font-size: .75rem;
+                color: var(--gray-500);
+            }
+
+            strong {
+                color: var(--white);
+            }
         }
     }
 
@@ -20,8 +40,104 @@
         padding: 2rem;
 
         .sectionHeader {
+            margin-bottom: 2rem;
             display: flex;
             align-items: center;
+
+            button:first-child {
+                width: 3.5rem;
+                height: 3.5rem;
+                margin-right: 2rem;
+                box-shadow: none;
+            }
+
+            button:last-child {
+                margin-left: 1.5rem;
+            }
+            
+            button svg {
+                width: 2rem;
+                height: 2rem;
+            }
+
+            button:not(:first-child) svg {
+                color: var(--gray-200);
+                transition: color .2s;
+
+                &:hover {
+                    color: var(--white);
+                }
+            }
+        }
+
+        table {
+            width: 100%;
+            text-align: left;
+            border-collapse: collapse;
+
+            th, td {
+                padding: .5rem 0;
+
+                &:first-child {
+                    padding-left: 1.5rem;
+                }
+                
+                &:last-child {
+                    padding-right: 1.5rem;
+                }
+            }
+
+            th {
+                font-weight: 400;
+                border-bottom: 1px solid var(--gray-50);
+
+                &:last-child {
+                    text-align: right;
+                }
+
+                svg {
+                    width: 1rem;
+                    height: 1rem;
+                }
+            }
+
+            tr {
+                font-size: .75rem;
+                color: var(--gray-200);
+                border-radius: 5px;
+
+                &:not(:first-child):hover {
+                    background: var(--gray-50);
+                }
+
+                &:nth-child(2) {
+                    td {
+                        margin-top: 1rem;
+                    }
+                }
+
+                td {
+                    &:nth-child(2) {
+                        display: flex;
+                    }
+
+                    &:last-child {
+                        text-align: right;
+                    }
+
+                    img {
+                        width: 2.5rem;
+                        height: 2.5rem;
+                        margin-right: 1rem;
+                    }
+
+                    strong {
+                        font-size: 1rem;
+                        color: var(--white);
+                        display: block;
+                    }                    
+                }
+            }
         }
     }
 }

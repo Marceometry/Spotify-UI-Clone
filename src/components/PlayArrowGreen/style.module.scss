@@ -9,6 +9,8 @@
     transition-property: transform;
     transition-duration: .3s;
     display: flex;
+    align-items: center;
+    justify-content: center;
 
     &:hover {
         transform: scale(1.1);

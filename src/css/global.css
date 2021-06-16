@@ -7,6 +7,7 @@
   --gray-30: #333333;
   --gray-50: #535353;
   --gray-100: #919496;
+  --gray-200: #bdbdbd;
   --gray-500: #dddddd;
   --white: #ffffff;
   --green: #1ed760;
@@ -30,6 +31,7 @@ button, a {
   border: none;
   color: inherit;
   font: inherit;
+  background: none;
   text-decoration: none;
   cursor: pointer;
 }
