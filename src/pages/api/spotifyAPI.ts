@@ -8,6 +8,7 @@ const basic = Buffer.from(`${client_id}:${client_secret}`).toString('base64')
 const TOKEN_ENDPOINT = `https://accounts.spotify.com/api/token`
 
 const USER_PLAYLISTS_ENDPOINT = 'https://api.spotify.com/v1/users/lhg9s64w62qlvitz3awnfx1ii/playlists?offset=2'
+const PLAYLIST_ENDPOINT = 'https://api.spotify.com/v1/playlists/' // + {playlist_id}
 const ARTISTS_ENDPOINT = 'https://api.spotify.com/v1/me/following?type=artist&limit=8'
 const NOW_PLAYING_ENDPOINT = `https://api.spotify.com/v1/me/player/currently-playing`
 const TOP_TRACKS_ENDPOINT = `https://api.spotify.com/v1/me/top/tracks`
@@ -64,6 +65,18 @@ export const getUserPlaylists = async () => {
   return {
     title, description, type, result
   }
+}
+
+export const getPlaylist = async (id: string) => {
+  const { access_token } = await getAccessToken()
+
+  const response = await fetch(PLAYLIST_ENDPOINT + id, {
+    headers: {
+      Authorization: `Bearer ${access_token}`
+    }
+  })
+
+  return response.json()
 }
 
 export const getNowPlaying = async () => {
