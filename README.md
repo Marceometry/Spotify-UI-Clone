@@ -27,7 +27,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 <h4> Acesse em: https://spotify-ui-clone.vercel.app </h4>
 
-O projeto consiste em um clone da interface do Web Player do [Spotify](https://open.spotify.com).
+O projeto consiste em um clone da interface do Web Player do [Spotify](https://open.spotify.com), conectando com a API do Spotify para popular o site.
 
 ## 🚀 Como executar
 
