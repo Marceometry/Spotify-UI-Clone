@@ -1,33 +1,53 @@
 import Head from 'next/head'
 import { GetServerSideProps } from 'next'
-import { getPlaylist } from './api/spotifyAPI'
+import { useEffect, useState } from 'react'
+import { getPlaylist } from '../api/spotifyAPI'
 
-import playlistDurationToString from '../utils/playlistDurationToString'
-import durationToTimeString from '../utils/durationToTimeString'
+import playlistDurationToString from '../../utils/playlistDurationToString'
+import durationToTimeString from '../../utils/durationToTimeString'
 
 import { FavoriteBorderOutlined, MoreHoriz, Schedule } from '@material-ui/icons'
-import PlayArrowGreen from '../components/PlayArrowGreen'
+import PlayArrowGreen from '../../components/PlayArrowGreen'
 
-import styles from '../css/Playlist.module.scss'
-import { useEffect, useState } from 'react'
+import styles from '../../css/Playlist.module.scss'
 
 export default function Home({ playlist }) {
     const [playlistDuration, setPlaylistDuration] = useState(0)
+    const [artists, setArtists] = useState([])
 
     useEffect(() => {
-        let duration = 0
-
-        playlist.tracks.items.map(item => (
-            duration += item.track.duration_ms
-        ))
-
-        setPlaylistDuration(duration / 1000)
+        if (!playlist.name) {
+            return
+        } else {
+            let duration = 0
+            let artists = []
+    
+            playlist.tracks.items.map(item => (
+                duration += item.track.duration_ms
+            ))
+    
+            for (let i = 0; i < playlist.tracks.items.length; i++) {
+                let artistsArray = playlist.tracks.items[i].track.artists
+                let artistsNames = []
+    
+                for (let j = 0; j < artistsArray.length; j++) {
+                    artistsNames.push(artistsArray[j].name)
+                }
+    
+                artists.push(artistsNames.join(", "))
+            }
+    
+            setArtists(artists)
+            setPlaylistDuration(duration / 1000)
+        }
     }, [playlist])
+
+    if (!playlist.name) return <div className="loaderContainer"><i>Houve algo de errado</i></div>
 
     return (
         <div className={styles.playlistContainer}>
             <Head>
-                <title>Spotify - Descobertas da Semana</title>
+                <title>Spotify - {playlist.name}</title>
             </Head>
 
             <header style={{
@@ -70,13 +90,13 @@ export default function Home({ playlist }) {
                                 <span className={styles.position}>{key + 1}</span>
                                 <span className={styles.play}></span>
                                 <span>
-                                    {/* <img src={item.albumImage} alt="Álbum" /> */}
+                                    <img src={item.track.album.images[0].url} alt="Álbum" />
                                     <div>
                                         <strong> {item.track.name} </strong>
-                                        {/* <p> {item.artist} </p> */}
+                                        <p> {artists[key]} </p>
                                     </div>
                                 </span>
-                                {/* <span className={styles.album}> {item.album} </span> */}
+                                <span className={styles.album}> {item.track.album.name} </span>
                                 <span> {item.added_at} </span>
                                 <span> {durationToTimeString(item.track.duration_ms / 1000)} </span>
                             </li>
@@ -88,9 +108,9 @@ export default function Home({ playlist }) {
     )
 }
 
-export const getServerSideProps: GetServerSideProps = async () => {
-    const playlist = await getPlaylist('37i9dQZF1DXbj9Ksq4BAdj')
-    console.log(playlist)
+export const getServerSideProps: GetServerSideProps = async ({ params }) => {
+    const { id } = params
+    const playlist = await getPlaylist(id)
 
     return {
         props: { playlist }
