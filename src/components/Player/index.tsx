@@ -1,6 +1,6 @@
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import Image from 'next/image'
-import { PlayCircleFilled, RepeatRounded, ShuffleRounded, SkipPreviousRounded, SkipNextRounded, VolumeUpRounded, PauseCircleFilled } from '@material-ui/icons'
+import { PlayCircleFilled, RepeatRounded, ShuffleRounded, SkipPreviousRounded, SkipNextRounded, VolumeUpRounded, PauseCircleFilled, RepeatOneRounded } from '@material-ui/icons'
 import Slider from "rc-slider"
 import "rc-slider/assets/index.css"
 import durationToTimeString from '../../utils/durationToTimeString'
@@ -9,16 +9,23 @@ import styles from './style.module.scss'
 
 export default function Player() {
     const audioRef = useRef<HTMLAudioElement>(null)
+
     const [progress, setProgress] = useState(0)
-    const [volume, setVolume] = useState(100)
     const [duration, setDuration] = useState(0)
+    const [volume, setVolume] = useState(100)
+
     const [isPlaying, setIsPlaying] = useState(false)
+    const [isLooping, setIsLooping] = useState(false)
     const [test, setTest] = useState(false)
+
+    useEffect(() => {
+      setTest(true)
+    }, [])
 
     function setupProgressListener() {
       audioRef.current.currentTime = 0
       audioRef.current.volume = volume / 100
-  
+
       setDuration(audioRef.current.duration)
       audioRef.current.addEventListener('timeupdate', () => {
         setProgress(Math.floor(audioRef.current.currentTime))
@@ -43,7 +50,6 @@ export default function Player() {
 
     function handlePlay() {
       if (!audioRef.current) {
-        setTest(true)
         return
       }
       
@@ -53,6 +59,14 @@ export default function Player() {
       } else {
         audioRef.current.play()
         setIsPlaying(true)
+      }
+    }
+
+    function handleLoop() {
+      if (isLooping) {
+        setIsLooping(false)
+      } else {
+        setIsLooping(true)
       }
     }
 
@@ -66,40 +80,52 @@ export default function Player() {
                     <span>Metallica</span>
                 </div>
 
-                {test ? (
+                {test && (
                   <audio
-                      src="/enter-sandman-acapella.mp3"
                       ref={audioRef}
-                      // loop={isLooping}
                       onLoadedMetadata={setupProgressListener}
-                      // onPlay={() => setPlayingState(true)}
-                      // onPause={() => setPlayingState(false)}
-                      // onEnded={playNext}
+                      src="/enter-sandman-acapella.mp3"
+                      loop={isLooping}
+                      onPlay={() => setIsPlaying(true)}
+                      onPause={() => setIsPlaying(false)}
+                      onEnded={() => setIsPlaying(false)}
                   />
-                ) : ''}
+                )}
             </div>
 
             <div className={styles.controls}>
                 <div className={styles.buttons}>
-                    <ShuffleRounded />
+                    <button disabled>
+                      <ShuffleRounded />
+                    </button>
 
-                    <SkipPreviousRounded className={styles.skipButton} />
+                    <button disabled>
+                      <SkipPreviousRounded className={styles.skipButton} />
+                    </button>
 
                     {isPlaying ? (
-                      <PauseCircleFilled
-                        className={styles.playButton}
-                        onClick={handlePlay}
-                      />
+                      <button onClick={handlePlay}>
+                        <PauseCircleFilled className={styles.playButton} />
+                      </button>
                     ) : (
-                      <PlayCircleFilled
-                        className={styles.playButton}
-                        onClick={handlePlay}
-                      />
+                      <button onClick={handlePlay}>
+                        <PlayCircleFilled className={styles.playButton} />
+                      </button>
                     )}
 
-                    <SkipNextRounded className={styles.skipButton} />
+                    <button disabled>
+                      <SkipNextRounded className={styles.skipButton} />
+                    </button>
 
-                    <RepeatRounded />
+                    {isLooping ? (
+                      <button onClick={handleLoop}>
+                        <RepeatOneRounded />
+                      </button>
+                    ) : (
+                      <button onClick={handleLoop}>
+                        <RepeatRounded />
+                      </button>
+                    )}
                 </div>
 
                 <div className={styles.progressBar}>
@@ -107,8 +133,8 @@ export default function Player() {
 
                   <div id={styles.slider}>
                     <Slider
-                        max={audioRef.current ? duration : 0}
-                        value={audioRef.current ? progress : 0}
+                        max={duration}
+                        value={progress}
                         onChange={handleSeek}
                         trackStyle={{ backgroundColor: "#1ed760" }}
                         railStyle={{ backgroundColor: "#535353" }}
