@@ -6,7 +6,9 @@ const refresh_token = process.env.SPOTIFY_REFRESH_TOKEN
 
 const basic = Buffer.from(`${client_id}:${client_secret}`).toString('base64')
 const TOKEN_ENDPOINT = `https://accounts.spotify.com/api/token`
-const USER_PLAYLISTS_ENDPOINT = 'https://api.spotify.com/v1/users/lhg9s64w62qlvitz3awnfx1ii/playlists'
+
+const USER_PLAYLISTS_ENDPOINT = 'https://api.spotify.com/v1/users/lhg9s64w62qlvitz3awnfx1ii/playlists?offset=2'
+const ARTISTS_ENDPOINT = 'https://api.spotify.com/v1/me/following?type=artist&limit=8'
 const NOW_PLAYING_ENDPOINT = `https://api.spotify.com/v1/me/player/currently-playing`
 const TOP_TRACKS_ENDPOINT = `https://api.spotify.com/v1/me/top/tracks`
 
@@ -26,14 +28,42 @@ const getAccessToken = async () => {
   return response.json()
 }
 
-export const getUserPlaylists = async () => {
+export const getArtists = async () => {
   const { access_token } = await getAccessToken()
 
-  return fetch(USER_PLAYLISTS_ENDPOINT, {
+  const response = await fetch(ARTISTS_ENDPOINT, {
     headers: {
       Authorization: `Bearer ${access_token}`
     }
   })
+
+  const result = await response.json()
+  const title = "Seus Artistas Favoritos"
+  const description = null
+  const type = "artists"
+
+  return {
+    title, description, type, result
+  }
+}
+
+export const getUserPlaylists = async () => {
+  const { access_token } = await getAccessToken()
+
+  const response = await fetch(USER_PLAYLISTS_ENDPOINT, {
+    headers: {
+      Authorization: `Bearer ${access_token}`
+    }
+  })
+
+  const result = await response.json()
+  const title = "Feito para você"
+  const description = "Quanto mais você escutar, melhores recomendações vai receber."
+  const type = "playlists"
+
+  return {
+    title, description, type, result
+  }
 }
 
 export const getNowPlaying = async () => {

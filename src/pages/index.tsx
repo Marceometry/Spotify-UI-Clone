@@ -1,32 +1,27 @@
 import Head from 'next/head'
 import { GetServerSideProps } from 'next'
-import { getUserPlaylists } from './api/spotifyAPI'
-import { fakeData } from '../utils/fakeData'
+import { getUserPlaylists, getArtists } from './api/spotifyAPI'
 import CardsRow from '../components/CardsRow'
 import styles from '../css/Home.module.scss'
 
-export default function Home({ items }) {  
+export default function Home({ playlists, artists }) {
   return (
     <div className={styles.rowsContainer}>
       <Head>
         <title>Spotify - Web Player</title>
       </Head>
 
-      {/* {console.log(items)} */}
-
-      {fakeData.map((item, key) => (
-        <CardsRow data={item} key={key} />
-      ))}
+      <CardsRow data={playlists} />
+      <CardsRow data={artists} />
     </div>
   )
 }
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  const response = await getUserPlaylists()
-  const data = await response.json()
-  console.log(data)
+  const playlists = await getUserPlaylists()
+  const artists = await getArtists()
 
   return {
-    props: { }
+    props: { playlists, artists }
   }
 }

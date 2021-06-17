@@ -8,16 +8,26 @@ export default function CardsRow({ data }) {
             <header>
                 <div>
                     <h2>{data.title}</h2>
-                    {data.subtitle && <p>{data.subtitle}</p>}
+                    {data.description && <p>{data.description}</p>}
                 </div>
 
                 <Link href="/"><a>VER TUDO</a></Link>
             </header>
 
             <div className={styles.row}>
-                {data.items.map((item, key) => (
-                    <Card item={item} type={data.type} key={key} />
-                ))}
+                {data.type === 'artists' ? (
+                    <>
+                    {data.result.artists.items.map((item, key) => (
+                        <Card item={item} type={data.type} key={key} />
+                    ))}
+                    </>
+                ) : (
+                    <>
+                    {data.result.items.map((item, key) => (
+                        <Card item={item} type={data.type} key={key} />
+                    ))}
+                    </>
+                )}
             </div>
         </section>
     )
