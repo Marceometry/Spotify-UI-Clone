@@ -9,7 +9,7 @@ const TOKEN_ENDPOINT = `https://accounts.spotify.com/api/token`
 
 const USER_PLAYLISTS_ENDPOINT = 'https://api.spotify.com/v1/users/lhg9s64w62qlvitz3awnfx1ii/playlists?offset=2'
 const PLAYLIST_ENDPOINT = 'https://api.spotify.com/v1/playlists/' // + {playlist_id}
-const ARTISTS_ENDPOINT = 'https://api.spotify.com/v1/me/following?type=artist&limit=8'
+const ARTISTS_ENDPOINT = 'https://api.spotify.com/v1/me/following?type=artist'
 const NOW_PLAYING_ENDPOINT = `https://api.spotify.com/v1/me/player/currently-playing`
 const TOP_TRACKS_ENDPOINT = `https://api.spotify.com/v1/me/top/tracks`
 
@@ -29,10 +29,10 @@ const getAccessToken = async () => {
   return response.json()
 }
 
-export const getArtists = async () => {
+export const getArtists = async (limit) => {
   const { access_token } = await getAccessToken()
 
-  const response = await fetch(ARTISTS_ENDPOINT, {
+  const response = await fetch(ARTISTS_ENDPOINT + limit, {
     headers: {
       Authorization: `Bearer ${access_token}`
     }
@@ -49,10 +49,10 @@ export const getArtists = async () => {
   }
 }
 
-export const getUserPlaylists = async () => {
+export const getUserPlaylists = async (limit) => {
   const { access_token } = await getAccessToken()
 
-  const response = await fetch(USER_PLAYLISTS_ENDPOINT, {
+  const response = await fetch(USER_PLAYLISTS_ENDPOINT + limit, {
     headers: {
       Authorization: `Bearer ${access_token}`
     }

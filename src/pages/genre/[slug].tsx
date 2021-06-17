@@ -79,9 +79,9 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
     let list
 
     if (slug === 'feito-para-voce') {
-        list = await getUserPlaylists()
+        list = await getUserPlaylists('')
     } else if (slug === 'seus-artistas-favoritos') {
-        list = await getArtists()
+        list = await getArtists('')
     } else {
         list = null
     }
