@@ -1,10 +1,10 @@
 import Head from 'next/head'
 import { GetServerSideProps } from 'next'
-import { getUserPlaylists, getArtists } from './api/spotifyAPI'
+import { getUserPlaylists, getArtists, getFeaturedPlaylists } from './api/spotifyAPI'
 import CardsRow from '../components/CardsRow'
 import styles from '../css/Home.module.scss'
 
-export default function Home({ playlists, artists }) {
+export default function Home({ playlists, featuredPlaylists, artists }) {
   return (
     <div className={styles.rowsContainer}>
       <Head>
@@ -13,15 +13,19 @@ export default function Home({ playlists, artists }) {
 
       <CardsRow data={playlists} />
       <CardsRow data={artists} />
+      <CardsRow data={featuredPlaylists} />
     </div>
   )
 }
 
 export const getServerSideProps: GetServerSideProps = async () => {
   const playlists = await getUserPlaylists('&limit=8')
+  const featuredPlaylists = await getFeaturedPlaylists('?limit=8')
   const artists = await getArtists('&limit=8')
 
+  console.log(featuredPlaylists)
+
   return {
-    props: { playlists, artists }
+    props: { playlists, featuredPlaylists, artists }
   }
 }

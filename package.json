@@ -11,6 +11,7 @@
     "@material-ui/core": "^4.11.4",
     "@material-ui/icons": "^4.11.2",
     "axios": "^0.21.1",
+    "date-fns": "^2.22.1",
     "next": "10.2.3",
     "nprogress": "^0.2.0",
     "rc-slider": "^9.7.2",
@@ -19,6 +20,7 @@
     "sass": "^1.34.1"
   },
   "devDependencies": {
+    "@types/date-fns": "^2.6.0",
     "@types/nprogress": "^0.2.0",
     "@types/react": "^17.0.9",
     "typescript": "^4.3.2"

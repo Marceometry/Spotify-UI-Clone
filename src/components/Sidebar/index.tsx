@@ -16,13 +16,13 @@ export default function Sidebar() {
 
     useEffect(() => {
         getUserPlaylists('').then(response => {
-          const data = response.result
+          const data = response
           console.log(data)
   
-          data.error ? (
+          !data.items ? (
             setGotError(true)
           ) : (
-            setPlaylists([data.items]),
+            setPlaylists([response.items]),
             setGotError(false)
           )
           setIsLoading(false)

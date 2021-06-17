@@ -8,6 +8,7 @@ const basic = Buffer.from(`${client_id}:${client_secret}`).toString('base64')
 const TOKEN_ENDPOINT = `https://accounts.spotify.com/api/token`
 
 const USER_PLAYLISTS_ENDPOINT = 'https://api.spotify.com/v1/users/lhg9s64w62qlvitz3awnfx1ii/playlists?offset=2'
+const FEATURED_PLAYLISTS_ENDPOINT = 'https://api.spotify.com/v1/browse/featured-playlists'
 const PLAYLIST_ENDPOINT = 'https://api.spotify.com/v1/playlists/' // + {playlist_id}
 const ARTISTS_ENDPOINT = 'https://api.spotify.com/v1/me/following?type=artist'
 const NOW_PLAYING_ENDPOINT = `https://api.spotify.com/v1/me/player/currently-playing`
@@ -38,14 +39,15 @@ export const getArtists = async (limit) => {
     }
   })
 
-  const result = await response.json()
+  const { artists } = await response.json()
+  const items = artists.items
   const title = "Seus Artistas Favoritos"
   const slug = "seus-artistas-favoritos"
   const description = null
   const type = "artists"
 
   return {
-    title, slug, description, type, result
+    title, slug, description, type, items
   }
 }
 
@@ -58,14 +60,35 @@ export const getUserPlaylists = async (limit) => {
     }
   })
 
-  const result = await response.json()
+  const { items } = await response.json()
   const title = "Feito para você"
   const slug = "feito-para-voce"
   const description = "Quanto mais você escutar, melhores recomendações vai receber."
   const type = "playlists"
 
   return {
-    title, slug, description, type, result
+    title, slug, description, type, items
+  }
+}
+
+export const getFeaturedPlaylists = async (limit) => {
+  const { access_token } = await getAccessToken()
+
+  const response = await fetch(FEATURED_PLAYLISTS_ENDPOINT + limit, {
+    headers: {
+      Authorization: `Bearer ${access_token}`
+    }
+  })
+
+  const { playlists } = await response.json()
+  const items = playlists.items
+  const title = "Playlists em destaque"
+  const slug = "playlists-em-destaque"
+  const description = "Fique por dentro das playlists mais ouvidas no momento."
+  const type = "playlists"
+
+  return {
+    title, slug, description, type, items
   }
 }
 

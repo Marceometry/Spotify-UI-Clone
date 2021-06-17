@@ -3,6 +3,9 @@ import { GetServerSideProps } from 'next'
 import { useEffect, useState } from 'react'
 import { getPlaylist } from '../api/spotifyAPI'
 
+import { format, parseISO } from 'date-fns'
+import ptBR from 'date-fns/locale/pt-BR'
+
 import playlistDurationToString from '../../utils/playlistDurationToString'
 import durationToTimeString from '../../utils/durationToTimeString'
 
@@ -42,7 +45,7 @@ export default function Playlist({ playlist }) {
         }
     }, [playlist])
 
-    if (!playlist.name) return <div className="loaderContainer"><i>Houve algo de errado</i></div>
+    if (!playlist.name) return <div className="loaderContainer"><i>Houve algo de errado ao carregar esta página</i></div>
 
     return (
         <div className={styles.playlistContainer}>
@@ -97,7 +100,7 @@ export default function Playlist({ playlist }) {
                                     </div>
                                 </span>
                                 <span className={styles.album}> {item.track.album.name} </span>
-                                <span> {item.added_at} </span>
+                                <span> {format(parseISO(item.added_at), 'dd MMM yyyy', { locale: ptBR })} </span>
                                 <span> {durationToTimeString(item.track.duration_ms / 1000)} </span>
                             </li>
                         )))}
