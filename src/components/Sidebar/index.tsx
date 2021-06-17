@@ -1,12 +1,15 @@
 import { useEffect, useState } from 'react'
+import { useRouter } from 'next/router'
 import Image from 'next/image'
 import Link from 'next/link'
+
 import { Home, Search, MenuBook, AddBox, Favorite, GetApp } from '@material-ui/icons'
 import { getUserPlaylists } from '../../pages/api/spotifyAPI'
 
 import styles from './style.module.scss'
 
 export default function Sidebar() {
+    const router = useRouter()
     const [playlists, setPlaylists] = useState([])
     const [isLoading, setIsLoading] = useState(true)
     const [gotError, setGotError] = useState(false)
@@ -35,21 +38,21 @@ export default function Sidebar() {
           </Link>
 
           <ul className={styles.main}>
-            <li>
+            <li className={router.pathname === '/' ? styles.active : ''}>
               <Link href="/">
                 <a>
                   <Home /> <span>Início</span>
                 </a>
               </Link>
             </li>
-            <li>
+            <li className={router.pathname === '/search' ? styles.active : ''}>
               <Link href="/">
                 <a>
                   <Search /> <span>Buscar</span>
                 </a>
               </Link>
             </li>
-            <li>
+            <li className={router.pathname === '/mylib' ? styles.active : ''}>
               <Link href="/">
                 <a>
                   <MenuBook /> <span>Sua Biblioteca</span>
@@ -67,7 +70,7 @@ export default function Sidebar() {
                   </a>
                 </Link>
               </li>
-              <li>
+              <li className={router.pathname === '/liked' ? styles.active : ''}>
                 <Link href="/">
                   <a>
                     <Favorite /> <span>Músicas Curtidas</span>

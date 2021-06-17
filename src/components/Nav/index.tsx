@@ -30,7 +30,7 @@ export default function Nav({ hasBG }) {
     <nav className={`${styles.nav} ${hasBG ? styles.bg : ''}`}>
       <div className={styles.router}>
         <NavigateBefore className={styles.disabled} />
-        <NavigateNext />
+        <NavigateNext className={styles.disabled} />
       </div>
 
       <Link href="/">

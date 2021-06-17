@@ -7,7 +7,7 @@ import styles from './style.module.scss'
 export default function Card({ item, type }) {
     return (
         <>
-        <Link href="/playlist">
+        <Link href={type === "playlists" ? `/playlist/${item.id}` : '/'}>
             <a className={styles.card}>
                 <div className={`${styles.img} ${type === "artists" && styles.artistImg}`}>
                     <Image width={320} height={320} src={!item.images[0].url ? '/music-note.png' : item.images[0].url} alt="Imagem" />

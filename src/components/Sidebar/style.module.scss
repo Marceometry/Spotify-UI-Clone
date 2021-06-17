@@ -14,7 +14,7 @@
         margin: 0 .5rem;
 
         &.main {
-            li:first-child {
+            li.active {
                 background: var(--gray-20);
                 color: var(--white);
             }
