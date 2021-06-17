@@ -40,11 +40,12 @@ export const getArtists = async () => {
 
   const result = await response.json()
   const title = "Seus Artistas Favoritos"
+  const slug = "seus-artistas-favoritos"
   const description = null
   const type = "artists"
 
   return {
-    title, description, type, result
+    title, slug, description, type, result
   }
 }
 
@@ -59,11 +60,12 @@ export const getUserPlaylists = async () => {
 
   const result = await response.json()
   const title = "Feito para você"
+  const slug = "feito-para-voce"
   const description = "Quanto mais você escutar, melhores recomendações vai receber."
   const type = "playlists"
 
   return {
-    title, description, type, result
+    title, slug, description, type, result
   }
 }
 

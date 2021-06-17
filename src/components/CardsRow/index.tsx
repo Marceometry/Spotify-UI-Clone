@@ -11,7 +11,7 @@ export default function CardsRow({ data }) {
                     {data.description && <p>{data.description}</p>}
                 </div>
 
-                <Link href="/"><a>VER TUDO</a></Link>
+                <Link href={`/genre/${data.slug}`}><a>VER TUDO</a></Link>
             </header>
 
             <div className={styles.row}>

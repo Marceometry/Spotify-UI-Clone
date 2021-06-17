@@ -11,7 +11,7 @@ import PlayArrowGreen from '../../components/PlayArrowGreen'
 
 import styles from '../../css/Playlist.module.scss'
 
-export default function Home({ playlist }) {
+export default function Playlist({ playlist }) {
     const [playlistDuration, setPlaylistDuration] = useState(0)
     const [artists, setArtists] = useState([])
 

@@ -1,0 +1,14 @@
+.container {
+    padding: 5.5rem 2rem;
+
+    h2 {
+        margin-bottom: 2rem;
+    }
+
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill,minmax(180px,1fr));
+        grid-template-rows: 1fr;
+        gap: 1.5rem;
+    }
+}
