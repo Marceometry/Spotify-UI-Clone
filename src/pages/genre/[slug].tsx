@@ -19,19 +19,9 @@ export default function List({ list }) {
             </header>
 
             <div className={styles.grid}>
-                {list.type === 'artists' ? (
-                    <>
-                    {list.items.map((item, key) => (
-                        <Card item={item} type={list.type} key={key} />
-                    ))}
-                    </>
-                ) : (
-                    <>
-                    {list.items.map((item, key) => (
-                        <Card item={item} type={list.type} key={key} />
-                    ))}
-                    </>
-                )}
+                {list.items.map((item, key) => (
+                    <Card item={item} type={list.type} key={key} />
+                ))}
             </div>
         </div>
     )
