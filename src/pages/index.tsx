@@ -23,8 +23,6 @@ export const getServerSideProps: GetServerSideProps = async () => {
   const featuredPlaylists = await getFeaturedPlaylists('?limit=8')
   const artists = await getArtists('&limit=8')
 
-  console.log(featuredPlaylists)
-
   return {
     props: { playlists, featuredPlaylists, artists }
   }
