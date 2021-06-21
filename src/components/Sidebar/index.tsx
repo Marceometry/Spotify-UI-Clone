@@ -17,7 +17,7 @@ export default function Sidebar() {
     useEffect(() => {
         // getUserPlaylists('').then(response => {
         //   const data = response
-        //   // console.log(data)
+        //   console.log(data)
   
         //   !data.items ? (
         //     setGotError(true)
