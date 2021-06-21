@@ -1,13 +1,16 @@
 import Link from "next/link"
 import Image from "next/image"
+import { useRouter } from "next/router"
 import { useState, useEffect, useRef } from "react"
-import { NavigateBefore, NavigateNext, Person, ArrowDropDown, ArrowDropUp } from "@material-ui/icons"
+import { NavigateBefore, NavigateNext, Person, Search, Close } from "@material-ui/icons"
 
 import styles from "./style.module.scss"
 
 export default function Nav({ hasBG }) {
   const [isUserPopUpOpen, setIsUserPopUpOpen] = useState(false)
-  const ref = useRef(null)
+  const popupRef = useRef(null)
+  const inputRef = useRef<HTMLInputElement>(null)
+  const router = useRouter()
 
   function openUserPopUp() {
     setIsUserPopUpOpen(!isUserPopUpOpen)
@@ -15,7 +18,7 @@ export default function Nav({ hasBG }) {
 
   useEffect(() => {
     function handleClickOutside(event) {
-      if (ref.current && !ref.current.contains(event.target)) {
+      if (popupRef.current && !popupRef.current.contains(event.target)) {
         setIsUserPopUpOpen(false)
       }
     }
@@ -24,72 +27,85 @@ export default function Nav({ hasBG }) {
     return () => {
       document.removeEventListener("mousedown", handleClickOutside)
     }
-  }, [ref])
+  }, [popupRef])
 
   return (
     <nav className={`${styles.nav} ${hasBG ? styles.bg : ''}`}>
       <div className={styles.router}>
         <NavigateBefore className={styles.disabled} />
         <NavigateNext className={styles.disabled} />
+
+        {router.pathname === '/search' ? (
+          <fieldset>
+            <Search />
+            <input ref={inputRef} type="text" name="search"
+              placeholder="Artistas, músicas ou podcasts"
+              maxLength={80} autoCorrect="off" spellCheck="false"
+            />
+            {inputRef.current && <Close />}
+          </fieldset>
+        ) : ''}
       </div>
 
-      <Link href="/">
-        <a className={styles.upgrade}>FAÇA UPGRADE</a>
-      </Link>
+      <div>
+        <Link href="/">
+          <a className={styles.upgrade}>FAÇA UPGRADE</a>
+        </Link>
 
-      <button
-        ref={ref}
-        className={styles.user}
-        onClick={openUserPopUp}
-        style={isUserPopUpOpen ? {background: "var(--gray-30)"} : {}}
-      >
-        <Person />
-
-        <span className={styles.userName}>Marcelino Teixeira</span>
-
-        <span
-          className={`${styles.arrow} ${isUserPopUpOpen ? styles.arrowUp : styles.arrowDown}`}>
-        </span>
-        
-        <ul
-          className={styles.userPopUp}
-          style={isUserPopUpOpen ? {
-            transform: 'scaleY(1)',
-            padding: '5px'
-          } : {}}
+        <button
+          ref={popupRef}
+          className={styles.user}
+          onClick={openUserPopUp}
+          style={isUserPopUpOpen ? { background: "var(--gray-30)" } : {}}
         >
-          <li>
-            <Link href="/">
-              <a>
-                <span>Conta</span>
-                <Image width={32} height={32} src="/external-link.svg" alt="" />
-              </a>
-            </Link>
-          </li>
-          <li>
-            <Link href="/">
-              <a>
-                <span>Perfil</span>
-              </a>
-            </Link>
-          </li>
-          <li>
-            <Link href="/">
-              <a>
-                <span>Faça upgrade para o Premium</span>
-                <Image width={32} height={32} src="/external-link.svg" alt="" />
-              </a>
-            </Link>
-          </li>
-          <li>
-            <Link href="/">
-              <a>
-                <span>Sair</span>
-              </a>
-            </Link>
-          </li>
-        </ul>
-      </button>
+          <Person />
+
+          <span className={styles.userName}>Marcelino Teixeira</span>
+
+          <span
+            className={`${styles.arrow} ${isUserPopUpOpen ? styles.arrowUp : styles.arrowDown}`}>
+          </span>
+
+          <ul
+            className={styles.userPopUp}
+            style={isUserPopUpOpen ? {
+              transform: 'scaleY(1)',
+              padding: '5px'
+            } : {}}
+          >
+            <li>
+              <Link href="/">
+                <a>
+                  <span>Conta</span>
+                  <Image width={32} height={32} src="/external-link.svg" alt="" />
+                </a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/">
+                <a>
+                  <span>Perfil</span>
+                </a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/">
+                <a>
+                  <span>Faça upgrade para o Premium</span>
+                  <Image width={32} height={32} src="/external-link.svg" alt="" />
+                </a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/">
+                <a>
+                  <span>Sair</span>
+                </a>
+              </Link>
+            </li>
+          </ul>
+        </button>
+      </div>
     </nav>
   );
 }

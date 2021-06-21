@@ -46,7 +46,7 @@ export default function Sidebar() {
               </Link>
             </li>
             <li className={router.pathname === '/search' ? styles.active : ''}>
-              <Link href="/">
+              <Link href="/search">
                 <a>
                   <Search /> <span>Buscar</span>
                 </a>
