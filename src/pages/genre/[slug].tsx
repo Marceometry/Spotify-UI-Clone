@@ -29,7 +29,7 @@ export default function List({ list }) {
 
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {
     const { slug } = params
-    let list
+    let list = {}
 
     if (slug === 'feito-para-voce') {
         list = await getUserPlaylists('')

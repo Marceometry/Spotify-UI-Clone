@@ -19,7 +19,7 @@ export default function Playlist({ playlist }) {
     const [artists, setArtists] = useState([])
 
     useEffect(() => {
-        if (!playlist.name) {
+        if (!playlist.tracks.items) {
             return
         } else {
             let duration = 0
@@ -54,8 +54,14 @@ export default function Playlist({ playlist }) {
             </Head>
 
             <header style={{
-                background: `linear-gradient(${playlist.primary_color}, ${playlist.primary_color}45 100%)`,
-                boxShadow: `0 8px 200px 80px ${playlist.primary_color}45`
+                background: `${playlist.primary_color ? 
+                    `linear-gradient(${playlist.primary_color}, ${playlist.primary_color}45 100%)`
+                    : 'linear-gradient(#808080, #80808045 100%)'
+                }`,
+                boxShadow: `${playlist.primary_color ?
+                    `0 8px 200px 80px ${playlist.primary_color}45`
+                    : '0 8px 200px 80px #80808045'
+                }`
             }}>
                 <img src={playlist.images[0].url} alt="Imagem" />
 

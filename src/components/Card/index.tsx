@@ -6,9 +6,11 @@ import styles from './style.module.scss'
 
 export default function Card({ item, type }) {
     return (
-        <>
-        <Link href={type === "playlists" ? `/playlist/${item.id}` : '/'}>
-            <a className={styles.card}>
+        <div className={styles.cardContainer}>
+            <Link href={type === "playlists" ? `/playlist/${item.id}` : '/'}>
+                <a></a>
+            </Link>
+            <div className={styles.card}>
                 <div className={`${styles.img} ${type === "artists" && styles.artistImg}`}>
                     <Image width={320} height={320} src={!item.images[0].url ? '/music-note.png' : item.images[0].url} alt="Imagem" />
 
@@ -17,8 +19,7 @@ export default function Card({ item, type }) {
 
                 <strong>{item.name}</strong>
                 <p><span>{type === "artists" ? "Artista" : reduceStringLength(item.description, 45)}</span></p>
-            </a>
-        </Link>
-        </>
+            </div>
+        </div>
     )
 }

@@ -1,12 +1,9 @@
-.card {
-    padding: 1rem;
+.cardContainer {
     border-radius: 5px;
-    background: var(--gray-10);
-    transition: background .2s;
-    text-overflow: ellipsis;
+    position: relative;
     overflow: hidden;
 
-    &:hover {
+    &:hover .card {
         background: var(--gray-20);
 
         .img button {
@@ -15,67 +12,85 @@
         }
     }
 
-    .img {
-        width: 100%;
-        border-radius: 2px;
-        background: var(--gray-30);
-        box-shadow: 0 8px 24px rgb(0 0 0 / 50%);
-        margin-bottom: 1.5rem;
-
-        display: flex;
-        position: relative;
-
-        button {
-            transition-property: bottom, transform, opacity;
-            transition-duration: .3s;
-            position: absolute;
-            bottom: .25rem;
-            right: .5rem;
-            opacity: 0;
-        }
-
-        img {
-            width: 100%;
-            border-radius: 2px;
-        }
-        
-        &.artistImg {
-            border-radius: 50%;
-            
-            img {
-                width: 100%;
-                border-radius: 50%;
-                object-fit: cover;
-            }
-            
-            // img:after {
-            //     content: "";
-            //     display: block;
-            //     padding-bottom: 100%;
-            // }
-        }
-
-        img[src = "/music-note.png"] {
-            width: 50%;
-            margin: 25%;
-            border-radius: 0;
-        }
+    a {
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        position: absolute;
+        z-index: 90;
     }
 
-    strong {
-        width: 100%;
-        font-size: .875rem;
-        white-space: nowrap;
-        overflow: hidden;
-    }
-
-    p {
-        max-height: 2rem;
-        margin-top: .5rem;
-        font-size: .75rem;
-        font-weight: 600;
-        color: var(--gray-100);
+    .card {
+        padding: 1rem;
+        background: var(--gray-10);
+        transition: background .2s;
         text-overflow: ellipsis;
         overflow: hidden;
+
+        .img {
+            width: 100%;
+            border-radius: 2px;
+            background: var(--gray-30);
+            box-shadow: 0 8px 24px rgb(0 0 0 / 50%);
+            margin-bottom: 1.5rem;
+    
+            display: flex;
+            position: relative;
+    
+            button {
+                transition-property: bottom, transform, opacity;
+                transition-duration: .3s;
+                position: absolute;
+                bottom: .25rem;
+                right: .5rem;
+                opacity: 0;
+                z-index: 95;
+            }
+    
+            img {
+                width: 100%;
+                border-radius: 2px;
+            }
+            
+            &.artistImg {
+                border-radius: 50%;
+                
+                img {
+                    width: 100%;
+                    border-radius: 50%;
+                    object-fit: cover;
+                }
+                
+                // img:after {
+                //     content: "";
+                //     display: block;
+                //     padding-bottom: 100%;
+                // }
+            }
+    
+            img[src = "/music-note.png"] {
+                width: 50%;
+                margin: 25%;
+                border-radius: 0;
+            }
+        }
+    
+        strong {
+            width: 100%;
+            font-size: .875rem;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+    
+        p {
+            max-height: 2rem;
+            margin-top: .5rem;
+            font-size: .75rem;
+            font-weight: 600;
+            color: var(--gray-100);
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
     }
 }

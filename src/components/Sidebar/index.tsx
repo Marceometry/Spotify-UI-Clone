@@ -15,18 +15,18 @@ export default function Sidebar() {
     const [gotError, setGotError] = useState(false)
 
     useEffect(() => {
-        getUserPlaylists('').then(response => {
-          const data = response
-          console.log(data)
+        // getUserPlaylists('').then(response => {
+        //   const data = response
+        //   // console.log(data)
   
-          !data.items ? (
-            setGotError(true)
-          ) : (
-            setPlaylists([response.items]),
-            setGotError(false)
-          )
+        //   !data.items ? (
+        //     setGotError(true)
+        //   ) : (
+        //     setPlaylists([response.items]),
+        //     setGotError(false)
+        //   )
           setIsLoading(false)
-        })
+        // })
     }, [])
 
     return (
@@ -88,7 +88,7 @@ export default function Sidebar() {
                     <div className="loader" />
                   </div>
                 </div>
-              ) : !gotError ? (
+              ) : gotError ? (
                 <>
                 {playlists.map((playlist, key) => (
                   <li key={key}>
