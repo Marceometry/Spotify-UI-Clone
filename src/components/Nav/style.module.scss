@@ -34,44 +34,6 @@
         }
     }
 
-    fieldset {
-        width: 23rem;
-        padding: 0 .5rem;
-        margin-top: -.25rem;
-        margin-left: 1rem;
-        border: none;
-        border-radius: 25px;
-        background: var(--white);
-
-        overflow-y: hidden;
-        display: flex;
-        align-items: center;
-
-        svg {
-            background: none!important;
-            color: var(--gray-20)!important;
-
-            &:first-child {
-                margin: .25rem .375rem .25rem 0!important;
-                cursor: default;
-            }
-            
-            &:last-child {
-                margin: .25rem 0 .25rem .375rem!important;
-            }
-        }
-
-        input {
-            flex: 1;
-            height: 100%;
-            border: none;
-
-            &:focus {
-                outline: none;
-            }
-        }
-    }
-
     div {
         display: flex;
     }

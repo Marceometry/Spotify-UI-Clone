@@ -1,7 +1,7 @@
 import Head from 'next/head'
-import { GetServerSideProps } from 'next'
-import { getUserPlaylists, getArtists, getFeaturedPlaylists } from '../api/spotifyAPI'
-import CardsRow from '../../components/CardsRow'
+// import { GetServerSideProps } from 'next'
+// import { getUserPlaylists, getArtists, getFeaturedPlaylists } from '../api/spotifyAPI'
+// import CardsRow from '../../components/CardsRow'
 import styles from '../../css/Home.module.scss'
 
 export default function Search() {

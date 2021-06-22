@@ -2,14 +2,14 @@ import Link from "next/link"
 import Image from "next/image"
 import { useRouter } from "next/router"
 import { useState, useEffect, useRef } from "react"
-import { NavigateBefore, NavigateNext, Person, Search, Close } from "@material-ui/icons"
+import { NavigateBefore, NavigateNext, Person } from "@material-ui/icons"
+import SearchInput from "../SearchInput"
+
 
 import styles from "./style.module.scss"
-
 export default function Nav({ hasBG }) {
   const [isUserPopUpOpen, setIsUserPopUpOpen] = useState(false)
   const popupRef = useRef(null)
-  const inputRef = useRef<HTMLInputElement>(null)
   const router = useRouter()
 
   function openUserPopUp() {
@@ -36,14 +36,7 @@ export default function Nav({ hasBG }) {
         <NavigateNext className={styles.disabled} />
 
         {router.pathname === '/search' ? (
-          <fieldset>
-            <Search />
-            <input ref={inputRef} type="text" name="search"
-              placeholder="Artistas, músicas ou podcasts"
-              maxLength={80} autoCorrect="off" spellCheck="false"
-            />
-            {inputRef.current && <Close />}
-          </fieldset>
+          <SearchInput />
         ) : ''}
       </div>
 
