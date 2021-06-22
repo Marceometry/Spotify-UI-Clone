@@ -22,6 +22,11 @@
         
         &:last-child {
             margin: .25rem 0 .25rem .375rem!important;
+            transition: color .2s;
+
+            &:hover {
+                color: var(--gray-50)!important;
+            }
         }
     }
     
