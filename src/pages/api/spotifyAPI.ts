@@ -11,8 +11,11 @@ const USER_PLAYLISTS_ENDPOINT = 'https://api.spotify.com/v1/users/lhg9s64w62qlvi
 const FEATURED_PLAYLISTS_ENDPOINT = 'https://api.spotify.com/v1/browse/featured-playlists'
 const PLAYLIST_ENDPOINT = 'https://api.spotify.com/v1/playlists/' // + {playlist_id}
 const ARTISTS_ENDPOINT = 'https://api.spotify.com/v1/me/following?type=artist'
-const NOW_PLAYING_ENDPOINT = `https://api.spotify.com/v1/me/player/currently-playing`
-const TOP_TRACKS_ENDPOINT = `https://api.spotify.com/v1/me/top/tracks`
+const SEARCH_ENDPOINT = 'https://api.spotify.com/v1/search'
+// const NOW_PLAYING_ENDPOINT = 'https://api.spotify.com/v1/me/player/currently-playing'
+// const TOP_TRACKS_ENDPOINT = 'https://api.spotify.com/v1/me/top/tracks'
+
+const myUrlWithParams = new URL("https://api.spotify.com/v1/search?type=album,artist,playlist,track")
 
 const getAccessToken = async () => {
   const response = await fetch(TOKEN_ENDPOINT, {
@@ -28,6 +31,22 @@ const getAccessToken = async () => {
   })
 
   return response.json()
+}
+
+export const search = async (params: string) => {
+  const { access_token } = await getAccessToken()
+
+  myUrlWithParams.searchParams.append("q", params)
+
+  const response = await fetch(myUrlWithParams.href, {
+    headers: {
+      Authorization: `Bearer ${access_token}`
+    }
+  })
+
+  const data = await response.json()
+
+  return console.log(data)
 }
 
 export const getArtists = async (limit) => {
@@ -104,25 +123,25 @@ export const getPlaylist = async (id) => {
   return response.json()
 }
 
-export const getNowPlaying = async () => {
-  const { access_token } = await getAccessToken()
+// export const getNowPlaying = async () => {
+//   const { access_token } = await getAccessToken()
 
-  return fetch(NOW_PLAYING_ENDPOINT, {
-    headers: {
-      Authorization: `Bearer ${access_token}`
-    }
-  })
-}
+//   return fetch(NOW_PLAYING_ENDPOINT, {
+//     headers: {
+//       Authorization: `Bearer ${access_token}`
+//     }
+//   })
+// }
 
-export const getTopTracks = async () => {
-  const { access_token } = await getAccessToken()
+// export const getTopTracks = async () => {
+//   const { access_token } = await getAccessToken()
 
-  return fetch(TOP_TRACKS_ENDPOINT, {
-    headers: {
-      Authorization: `Bearer ${access_token}`
-    }
-  })
-}
+//   return fetch(TOP_TRACKS_ENDPOINT, {
+//     headers: {
+//       Authorization: `Bearer ${access_token}`
+//     }
+//   })
+// }
 
 
 // |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||

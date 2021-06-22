@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from "react"
 import debounce from "lodash.debounce"
+import { search } from "../../pages/api/spotifyAPI"
 import { Search, Close } from "@material-ui/icons"
 import styles from "./style.module.scss"
 
@@ -12,12 +13,13 @@ export default function SearchInput() {
     }, [])
 
     const debouncedSave = useCallback(
-        debounce(value => console.log(value), 400), [],
+        debounce(value => search(value), 400), [],
     )
     
     const handleChange = (target: HTMLInputElement) => {
         const { value } = target
         setValue(value)
+        if (value === '') return
         debouncedSave(value)
     }
 
@@ -31,10 +33,10 @@ export default function SearchInput() {
         <fieldset className={styles.searchInput}>
           <Search className={styles.searchIcon} />
 
-          <input ref={inputRef} type="text" name="search"
-            onChange={() => handleChange(inputRef.current)}
+          <input ref={inputRef} type="text" spellCheck="false"
+            maxLength={80} autoCorrect="off" name="search"
             placeholder="Artistas, músicas ou podcasts"
-            maxLength={80} autoCorrect="off" spellCheck="false"
+            onChange={() => handleChange(inputRef.current)}
           />
 
           {value && (
