@@ -12,21 +12,24 @@
     align-items: center;
 
     svg {
-        background: none!important;
-        color: var(--gray-20)!important;
+        background: none;
+        color: var(--gray-20);
 
-        &:first-child {
-            margin: .25rem .375rem .25rem 0!important;
+        &.searchIcon {
+            margin: .25rem .375rem .25rem 0;
             cursor: default;
         }
-        
-        &:last-child {
-            margin: .25rem 0 .25rem .375rem!important;
-            transition: color .2s;
+    }
+    
+    button {
+        margin: .25rem 0 .25rem .375rem;
 
-            &:hover {
-                color: var(--gray-50)!important;
-            }
+        svg {
+            transition: color .2s;
+        }
+
+        &:hover svg {
+            color: var(--gray-50);
         }
     }
     

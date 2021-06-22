@@ -5,8 +5,8 @@ import { useState, useEffect, useRef } from "react"
 import { NavigateBefore, NavigateNext, Person } from "@material-ui/icons"
 import SearchInput from "../SearchInput"
 
-
 import styles from "./style.module.scss"
+
 export default function Nav({ hasBG }) {
   const [isUserPopUpOpen, setIsUserPopUpOpen] = useState(false)
   const popupRef = useRef(null)
@@ -32,8 +32,12 @@ export default function Nav({ hasBG }) {
   return (
     <nav className={`${styles.nav} ${hasBG ? styles.bg : ''}`}>
       <div className={styles.router}>
-        <NavigateBefore className={styles.disabled} />
-        <NavigateNext className={styles.disabled} />
+        <button>
+          <NavigateBefore />
+        </button>
+        <button disabled>
+          <NavigateNext />
+        </button>
 
         {router.pathname === '/search' ? (
           <SearchInput />
@@ -100,5 +104,5 @@ export default function Nav({ hasBG }) {
         </button>
       </div>
     </nav>
-  );
+  )
 }
