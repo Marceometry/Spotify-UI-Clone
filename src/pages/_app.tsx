@@ -5,6 +5,7 @@ import Nprogress from 'nprogress'
 import 'nprogress/nprogress.css'
 
 import '../css/global.css'
+import { SearchContextProvider } from '../contexts/SearchContext'
 
 Nprogress.configure({
   showSpinner: false,
@@ -24,9 +25,11 @@ Router.events.on('routeChangeError', () => {
 })
 
 export default function MyApp({ Component, pageProps }) {  
-  return (    
-    <AppContainer>
-        <Component {...pageProps} />
-    </AppContainer>
+  return (
+    <SearchContextProvider>
+      <AppContainer>
+          <Component {...pageProps} />
+      </AppContainer>
+    </SearchContextProvider>
   )
 }
