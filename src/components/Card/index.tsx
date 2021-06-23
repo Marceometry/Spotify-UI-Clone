@@ -18,7 +18,12 @@ export default function Card({ item, type }) {
                 </div>
 
                 <strong>{item.name}</strong>
-                <p><span>{type === "artists" ? "Artista" : reduceStringLength(item.description, 45)}</span></p>
+                
+                <p><span>
+                    {type === "playlists" && item.description ? (
+                        reduceStringLength(item.description, 45)
+                    ) : type === "artists" ? "Artista" : "Playlist"}
+                </span></p>
             </div>
         </div>
     )

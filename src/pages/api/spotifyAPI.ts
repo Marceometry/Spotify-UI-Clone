@@ -1,13 +1,13 @@
 import querystring from 'querystring'
 
-const client_id = process.env.SPOTIFY_CLIENT_ID
-const client_secret = process.env.SPOTIFY_CLIENT_SECRET
-const refresh_token = process.env.SPOTIFY_REFRESH_TOKEN
+const client_id = '73bc6779890243ae9c4bed89800d6214'
+const client_secret = '0864880a9d5446c39c6421f84c409bfb'
+const refresh_token = 'AQAlXbQKVznQ_KexhMqKXcqViamT8i6Le5uWt_FTdqkpR3koEaV7PHklGV_lOenzdmnfJ3vb9nvwtW_r3sLzdLP8t51v1UlGERHzG1-iB6Hef6QccAiJQD9_afZ6bEenNMY'
 
 const basic = Buffer.from(`${client_id}:${client_secret}`).toString('base64')
 const TOKEN_ENDPOINT = `https://accounts.spotify.com/api/token`
 
-const USER_PLAYLISTS_ENDPOINT = 'https://api.spotify.com/v1/users/lhg9s64w62qlvitz3awnfx1ii/playlists?offset=2'
+const USER_PLAYLISTS_ENDPOINT = 'https://api.spotify.com/v1/users/lhg9s64w62qlvitz3awnfx1ii/playlists'
 const FEATURED_PLAYLISTS_ENDPOINT = 'https://api.spotify.com/v1/browse/featured-playlists'
 const PLAYLIST_ENDPOINT = 'https://api.spotify.com/v1/playlists/' // + {playlist_id}
 const ARTISTS_ENDPOINT = 'https://api.spotify.com/v1/me/following?type=artist'

@@ -15,18 +15,15 @@ export default function Sidebar() {
     const [gotError, setGotError] = useState(false)
 
     useEffect(() => {
-        // getUserPlaylists('').then(response => {
-        //   const data = response
-        //   console.log(data)
-  
-        //   !data.items ? (
-        //     setGotError(true)
-        //   ) : (
-        //     setPlaylists([response.items]),
-        //     setGotError(false)
-        //   )
+        getUserPlaylists('').then(response => {  
+          !response.items ? (
+            setGotError(true)
+          ) : (
+            setPlaylists(response.items),
+            setGotError(false)
+          )
           setIsLoading(false)
-        // })
+        })
     }, [])
 
     return (
@@ -88,124 +85,22 @@ export default function Sidebar() {
                     <div className="loader" />
                   </div>
                 </div>
-              ) : gotError ? (
+              ) : !gotError ? (
                 <>
                 {playlists.map((playlist, key) => (
                   <li key={key}>
-                    <Link href="/">
+                    <Link href={`/playlist/${playlist.id}`}>
                       <a>{playlist.name}</a>
                     </Link>
                   </li>
                 ))}
                 </>
               ) : (
-                // <div className={styles.loaderContainer}>
-                //   <div className="loaderContainer">
-                //     <li><i> Erro ao carregar playlists </i></li>
-                //   </div>
-                // </div>
-                <>
-                  <li>
-                    <Link href="/">
-                      <a>This Is Metallica</a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/">
-                      <a>This Is Queen</a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/">
-                      <a>This Is ACDC</a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/">
-                      <a>This Is Avenged Sevenfold</a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/">
-                      <a>This Is Guns and Roses</a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/">
-                      <a>This Is Rolling Stones</a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/">
-                      <a>This Is Nirvana</a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/">
-                      <a>This Is System of a Down</a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/">
-                      <a>This Is Creedence</a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/">
-                      <a>This Is Scorpions</a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/">
-                      <a>This Is Beatles</a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/">
-                      <a>This Is Led Zeppelin</a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/">
-                      <a>This Is Red Hot Chili Peppers</a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/">
-                      <a>This Is Disturbed</a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/">
-                      <a>This Is Imagine Dragons</a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/">
-                      <a>This Is Green Day</a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/">
-                      <a>This Is Deep Purple</a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/">
-                      <a>This Is Pink Floyd</a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/">
-                      <a>This Is Slipknot</a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/">
-                      <a>This Is Megadeth</a>
-                    </Link>
-                  </li>
-                </>
+                <div className={styles.loaderContainer}>
+                  <div className="loaderContainer">
+                    <li><i> Erro ao carregar playlists </i></li>
+                  </div>
+                </div>
               )}
             </ul>
           </div>

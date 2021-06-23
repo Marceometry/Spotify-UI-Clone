@@ -19,7 +19,7 @@ export default function Home({ playlists, featuredPlaylists, artists }) {
 }
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  const playlists = await getUserPlaylists('&limit=8')
+  const playlists = await getUserPlaylists('?limit=8')
   const featuredPlaylists = await getFeaturedPlaylists('?limit=8')
   const artists = await getArtists('&limit=8')
 
