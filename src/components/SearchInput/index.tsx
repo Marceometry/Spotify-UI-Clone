@@ -16,8 +16,7 @@ export default function SearchInput() {
         debounce(value => search(value), 400), [],
     )
     
-    const handleChange = (target: HTMLInputElement) => {
-        const { value } = target
+    const handleChange = (value: string) => {
         setValue(value)
         if (value === '') return
         debouncedSave(value)
@@ -36,7 +35,7 @@ export default function SearchInput() {
           <input ref={inputRef} type="text" spellCheck="false"
             maxLength={80} autoCorrect="off" name="search"
             placeholder="Artistas, músicas ou podcasts"
-            onChange={() => handleChange(inputRef.current)}
+            onChange={() => handleChange(inputRef.current.value)}
           />
 
           {value && (
