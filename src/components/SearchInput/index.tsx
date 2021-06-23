@@ -34,7 +34,7 @@ export default function SearchInput() {
 
           <input ref={inputRef} type="text" spellCheck="false"
             maxLength={80} autoCorrect="off" name="search"
-            placeholder="Artistas, músicas ou podcasts"
+            placeholder="Artistas, músicas ou podcasts" value={value}
             onChange={() => handleChange(inputRef.current.value)}
           />
 
