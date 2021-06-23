@@ -62,18 +62,12 @@
                     border-radius: 50%;
                     object-fit: cover;
                 }
-                
-                // img:after {
-                //     content: "";
-                //     display: block;
-                //     padding-bottom: 100%;
-                // }
             }
-    
-            img[src = "/music-note.png"] {
-                width: 50%;
-                margin: 25%;
-                border-radius: 0;
+
+            .placeholderImg {
+                width: 50%!important;
+                border-radius: 0!important;
+                transform: scale(.6);
             }
         }
     

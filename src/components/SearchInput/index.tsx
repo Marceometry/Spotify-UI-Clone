@@ -6,7 +6,7 @@ import styles from "./style.module.scss"
 
 export default function SearchInput() {
   const inputRef = useRef<HTMLInputElement>(null)
-  const { searchText, setSearchText, debouncedSearch } = useSearch()
+  const { searchText, setSearchText, setIsInputEmpty, debouncedSearch } = useSearch()
 
   useEffect(() => {
     inputRef.current && inputRef.current.focus()
@@ -14,13 +14,17 @@ export default function SearchInput() {
 
   const handleChange = (value: string) => {
     setSearchText(value)
-    if (value === '') return
+    if (value === '') {
+      setIsInputEmpty(true)
+      return
+    }
     debouncedSearch(value)
   }
 
   function clearInput() {
     inputRef.current.value = ''
     inputRef.current.focus()
+    setIsInputEmpty(true)
     setSearchText('')
   }
 
@@ -30,7 +34,7 @@ export default function SearchInput() {
 
       <input ref={inputRef} type="text" spellCheck="false"
         maxLength={80} autoCorrect="off" name="search"
-        placeholder="Artistas, músicas ou podcasts" value={searchText}
+        placeholder="Artistas, músicas ou playlists" value={searchText}
         onChange={() => handleChange(inputRef.current.value)}
       />
 

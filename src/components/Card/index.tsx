@@ -26,9 +26,14 @@ export default function Card({ item, type }) {
             <Link href={type === "playlists" ? `/playlist/${item.id}` : '/'}>
                 <a></a>
             </Link>
+            
             <div className={styles.card}>
                 <div className={`${styles.img} ${type === "artists" && styles.artistImg}`}>
-                    <Image width={320} height={320} src={!item.images[0] ? '/music-note.png' : item.images[0].url} alt="Imagem" />
+
+                    <Image width={320} height={320} alt="Imagem"
+                        src={!item.images[0] ? '/music-note.png' : item.images[0].url}
+                        className={!item.images[0] ? styles.placeholderImg : ''}
+                    />
 
                     <PlayArrowGreen />
                 </div>

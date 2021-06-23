@@ -4,7 +4,7 @@ import CardsRow from '../../components/CardsRow'
 import styles from '../../css/Home.module.scss'
 
 export default function Search() {
-  const { searchResult } = useSearch()
+  const { searchResult, isInputEmpty } = useSearch()
   
   // const { albums, artists, playlists, tracks } = searchResult
 
@@ -14,7 +14,7 @@ export default function Search() {
         <title>Spotify - Web Player</title>
       </Head>
 
-      {searchResult.artistsResult && (
+      {!isInputEmpty && (
         <>
         <CardsRow data={searchResult.artistsResult} />
         {/* <CardsRow data={searchResult.tracksResult} /> */}

@@ -59,7 +59,9 @@ type Image = {
 type SearchContextType = {
     searchText: string
     searchResult: SearchResult
+    isInputEmpty: boolean
     setSearchText: (value: string) => void
+    setIsInputEmpty: (value: boolean) => void
     debouncedSearch: Function
 }
 
@@ -72,18 +74,20 @@ export const SearchContext = createContext({} as SearchContextType)
 export function SearchContextProvider({ children }: SearchContextProviderProps) {
     const [searchResult, setSearchResult] = useState({} as SearchResult)
     const [searchText, setSearchText] = useState('')
+    const [isInputEmpty, setIsInputEmpty] = useState(true)
 
     const debouncedSearch = useCallback(
         debounce(value => 
             search(value).then(response => {
-            setSearchResult(response)
+            setSearchResult(response),
+            setIsInputEmpty(false)
             }),
             400
         ), [],
     )
 
     return (
-        <SearchContext.Provider value={{searchText, setSearchText, searchResult, debouncedSearch}}>
+        <SearchContext.Provider value={{searchText, setSearchText, searchResult, debouncedSearch, isInputEmpty, setIsInputEmpty}}>
             { children }
         </SearchContext.Provider>
     )
