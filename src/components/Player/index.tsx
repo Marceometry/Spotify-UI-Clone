@@ -1,17 +1,17 @@
 import { useState, useRef, useEffect } from 'react'
 import Image from 'next/image'
+import toast from 'react-hot-toast'
 import Slider from "rc-slider"
 import "rc-slider/assets/index.css"
 
 import { PlayCircleFilled, RepeatRounded, ShuffleRounded, SkipPreviousRounded, SkipNextRounded, VolumeUpRounded, PauseCircleFilled, RepeatOneRounded } from '@material-ui/icons'
 import { usePlayer } from '../../contexts/PlayerContext'
+import { getTrack } from '../../pages/api/spotifyAPI'
 
 import durationToTimeString from '../../utils/durationToTimeString'
 import artistsNamesToString from '../../utils/artistsNamesToString'
 
 import styles from './style.module.scss'
-import { getTrack } from '../../pages/api/spotifyAPI'
-import toast from 'react-hot-toast'
 
 export default function Player() {
   const audioRef = useRef<HTMLAudioElement>(null)
@@ -27,7 +27,12 @@ export default function Player() {
   const [isPlaying, setIsPlaying] = useState(false)
   const [isLooping, setIsLooping] = useState(false)
 
-  useEffect(() => {
+  useEffect(() => {    
+    audioRef.current && (
+      audioRef.current.currentTime = 0,
+      audioRef.current.pause()
+    )
+
     const getTrackInfo = async () => {
       toast.dismiss()
       const loader = toast.loading('Carregando...')
@@ -37,11 +42,17 @@ export default function Player() {
       track.preview_url ? (
         setCurrentTrackUrl(track.preview_url)
       ) : (
+        setCurrentTrackUrl(''),
+        setDuration(0),
         toast.error('Amostra de áudio não encontrada')
       )
     }
     currentTrack.id && getTrackInfo()
   }, [currentTrack])
+
+  useEffect(() => {
+    currentTrackUrl && audioRef.current && audioRef.current.play()
+  }, [currentTrackUrl])
 
   function setupProgressListener() {
     audioRef.current.currentTime = 0
@@ -104,7 +115,7 @@ export default function Player() {
           <span>{artistsNamesToString(currentTrack.artists)}</span>
         </div>
 
-        {currentTrackUrl && (
+        {currentTrackUrl ? (
           <audio
             ref={audioRef}
             onLoadedMetadata={setupProgressListener}
@@ -114,7 +125,7 @@ export default function Player() {
             onPause={() => setIsPlaying(false)}
             onEnded={() => setIsPlaying(false)}
           />
-        )}
+        ) : ''}
       </div>
 
       <div className={styles.controls}>
@@ -132,7 +143,7 @@ export default function Player() {
               <PauseCircleFilled className={styles.playButton} />
             </button>
           ) : (
-            <button onClick={handlePlay}>
+            <button onClick={handlePlay} disabled={!currentTrackUrl}>
               <PlayCircleFilled className={styles.playButton} />
             </button>
           )}

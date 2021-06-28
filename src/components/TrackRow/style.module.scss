@@ -43,10 +43,23 @@
             margin-right: 1rem;
         }
 
+        div {
+            height: 100%;
+            display: flex;
+            justify-content: space-around;
+            flex-direction: column;
+        }
+
         strong {
             font-size: .875rem;
             color: var(--white);
             display: block;
         }   
+    }
+
+    &.nowPlaying {
+        span strong {
+            color: var(--green);
+        }
     }
 }

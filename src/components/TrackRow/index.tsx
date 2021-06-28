@@ -35,8 +35,9 @@ type Track = {
 
 export default function TrackRow({ index, track }: TrackRowProps) {
   const [stringArtists, setStringArtists] = useState('')
-  const { setCurrentTrack } = usePlayer()
+  const { currentTrack, setCurrentTrack } = usePlayer()
   const {
+    id,
     name,
     artists,
     album,
@@ -49,7 +50,9 @@ export default function TrackRow({ index, track }: TrackRowProps) {
   }, [artists])
 
   return (
-    <li className={styles.track}>
+    <li className={`${styles.track} ${currentTrack.id === id ? styles.nowPlaying : ''}`}
+      onDoubleClick={() => setCurrentTrack(track)}
+    >
       <span className={styles.position}>{index}</span>
       <button className={styles.play} onClick={() => setCurrentTrack(track)}></button>
       <span>
