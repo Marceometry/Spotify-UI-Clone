@@ -39,15 +39,15 @@ export default function Nav({ hasBG }) {
           <NavigateNext />
         </button>
 
-        {router.pathname === '/search' ? (
-          <SearchInput />
-        ) : ''}
+        {router.pathname === '/search' && <SearchInput />}
       </div>
 
       <div>
-        <Link href="/">
-          <a className={styles.upgrade}>FAÇA UPGRADE</a>
-        </Link>
+        {router.pathname === '/' && (
+          <Link href="/">
+            <a className={styles.upgrade}>FAÇA UPGRADE</a>
+          </Link>
+        )}
 
         <button
           ref={popupRef}
@@ -59,9 +59,7 @@ export default function Nav({ hasBG }) {
 
           <span className={styles.userName}>Marcelino Teixeira</span>
 
-          <span
-            className={`${styles.arrow} ${isUserPopUpOpen ? styles.arrowUp : styles.arrowDown}`}>
-          </span>
+          <span className={`${styles.arrow} ${isUserPopUpOpen ? styles.arrowUp : styles.arrowDown}`} />
 
           <ul
             className={styles.userPopUp}
