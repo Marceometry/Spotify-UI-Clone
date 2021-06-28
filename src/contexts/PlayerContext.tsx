@@ -1,4 +1,4 @@
-import { useState, createContext, useContext, ReactNode } from "react"
+import { useState, createContext, useContext, ReactNode, useRef, MutableRefObject } from "react"
 
 type ALbum = {
     id: string
@@ -21,8 +21,12 @@ type Track = {
 }
 
 type PlayerContextType = {
+    audioRef: MutableRefObject<HTMLAudioElement>
     currentTrack: Track
+    isPlaying: boolean
     setCurrentTrack: (track: Track) => void
+    setIsPlaying: (playState: boolean) => void
+    handlePlay: () => void
 }
 
 type PlayerContextProviderProps = {
@@ -32,12 +36,32 @@ type PlayerContextProviderProps = {
 export const PlayerContext = createContext({} as PlayerContextType)
 
 export function PlayerContextProvider({ children }: PlayerContextProviderProps) {
+    const audioRef = useRef<HTMLAudioElement>(null)
     const [currentTrack, setCurrentTrack] = useState({} as Track)
+    const [isPlaying, setIsPlaying] = useState(false)
+
+    function handlePlay() {
+      if (!audioRef.current) {
+        return
+      }
+  
+      if (isPlaying) {
+        audioRef.current.pause()
+        setIsPlaying(false)
+      } else {
+        audioRef.current.play()
+        setIsPlaying(true)
+      }
+    }
 
     return (
         <PlayerContext.Provider value={{
+            audioRef,
             currentTrack,
-            setCurrentTrack
+            setCurrentTrack,
+            isPlaying,
+            setIsPlaying,
+            handlePlay
         }}>
             {children}
         </PlayerContext.Provider>

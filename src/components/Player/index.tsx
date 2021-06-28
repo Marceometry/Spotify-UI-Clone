@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import toast from 'react-hot-toast'
 import Slider from "rc-slider"
@@ -14,9 +14,12 @@ import artistsNamesToString from '../../utils/artistsNamesToString'
 import styles from './style.module.scss'
 
 export default function Player() {
-  const audioRef = useRef<HTMLAudioElement>(null)
   const {
-    currentTrack
+    audioRef,
+    currentTrack,
+    handlePlay,
+    setIsPlaying,
+    isPlaying
   } = usePlayer()
 
   const [progress, setProgress] = useState(0)
@@ -24,7 +27,6 @@ export default function Player() {
   const [volume, setVolume] = useState(100)
 
   const [currentTrackUrl, setCurrentTrackUrl] = useState('')
-  const [isPlaying, setIsPlaying] = useState(false)
   const [isLooping, setIsLooping] = useState(false)
 
   useEffect(() => {    
@@ -80,25 +82,17 @@ export default function Player() {
     setVolume(amount)
   }
 
-  function handlePlay() {
-    if (!audioRef.current) {
-      return
-    }
-
-    if (isPlaying) {
-      audioRef.current.pause()
-      setIsPlaying(false)
-    } else {
-      audioRef.current.play()
-      setIsPlaying(true)
-    }
-  }
-
   function handleLoop() {
     if (isLooping) {
       setIsLooping(false)
     } else {
       setIsLooping(true)
+    }
+  }
+
+  function handleSkipPervius() {
+    if (progress > 5) {
+      audioRef.current.currentTime = 0
     }
   }
 
@@ -134,8 +128,10 @@ export default function Player() {
             <ShuffleRounded />
           </button>
 
-          <button disabled>
-            <SkipPreviousRounded className={styles.skipButton} />
+          <button disabled={progress < 5} onClick={handleSkipPervius}>
+            <SkipPreviousRounded
+              className={styles.skipButton}
+            />
           </button>
 
           {isPlaying ? (

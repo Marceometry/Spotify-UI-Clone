@@ -27,6 +27,10 @@
         border-left: 7px solid var(--white);
         transition: border .2s;
         display: none;
+
+        &.pause {
+            border-left: 7px solid var(--green);
+        }
     }
 
     span, button {
