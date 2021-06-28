@@ -31,7 +31,7 @@ export default function TrackRow({index, name, artists, albumImg, album, addedAt
     return (
       <li className={styles.song}>
           <span className={styles.position}>{index + 1}</span>
-          <span className={styles.play}></span>
+          <button className={styles.play}></button>
           <span>
               <img src={albumImg} alt="Álbum" />
               <div>

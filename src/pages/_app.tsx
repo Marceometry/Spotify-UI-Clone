@@ -1,11 +1,12 @@
 import AppContainer from '../components/AppContainer'
+import { SearchContextProvider } from '../contexts/SearchContext'
+import { PlayerContextProvider } from '../contexts/PlayerContext'
 
 import Router from 'next/router'
 import Nprogress from 'nprogress'
 import 'nprogress/nprogress.css'
 
 import '../css/global.css'
-import { SearchContextProvider } from '../contexts/SearchContext'
 
 Nprogress.configure({
   showSpinner: false,
@@ -26,10 +27,12 @@ Router.events.on('routeChangeError', () => {
 
 export default function MyApp({ Component, pageProps }) {  
   return (
-    <SearchContextProvider>
-      <AppContainer>
+    <PlayerContextProvider>
+      <SearchContextProvider>
+        <AppContainer>
           <Component {...pageProps} />
-      </AppContainer>
-    </SearchContextProvider>
+        </AppContainer>
+      </SearchContextProvider>
+    </PlayerContextProvider>
   )
 }

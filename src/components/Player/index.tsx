@@ -6,9 +6,14 @@ import "rc-slider/assets/index.css"
 import durationToTimeString from '../../utils/durationToTimeString'
 
 import styles from './style.module.scss'
+import { usePlayer } from '../../contexts/PlayerContext'
 
 export default function Player() {
     const audioRef = useRef<HTMLAudioElement>(null)
+    const {
+      currentTrackUrl,
+      setCurrentTrackUrl
+    } = usePlayer()
 
     const [progress, setProgress] = useState(0)
     const [duration, setDuration] = useState(0)
@@ -19,6 +24,7 @@ export default function Player() {
     const [test, setTest] = useState(false)
 
     useEffect(() => {
+      setCurrentTrackUrl('/enter-sandman-acapella.mp3')
       setTest(true)
     }, [])
 
@@ -84,7 +90,7 @@ export default function Player() {
                   <audio
                       ref={audioRef}
                       onLoadedMetadata={setupProgressListener}
-                      src="/enter-sandman-acapella.mp3"
+                      src={currentTrackUrl}
                       loop={isLooping}
                       onPlay={() => setIsPlaying(true)}
                       onPause={() => setIsPlaying(false)}
