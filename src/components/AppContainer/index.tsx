@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { Toaster } from 'react-hot-toast'
 
 import Nav from '../Nav'
 import Sidebar from '../Sidebar'
@@ -28,6 +29,10 @@ export default function AppContainer({ children }) {
   
   return (
     <div className={styles.container}>
+      <Toaster gutter={-56} toastOptions={{
+        className: 'toaster',
+        error: { duration: 2000 }
+      }} />
       <div className={styles.contentContainer}>
         <Sidebar />
 

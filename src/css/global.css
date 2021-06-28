@@ -40,6 +40,12 @@ ul {
   list-style: none;
 }
 
+.toaster {
+  background: var(--gray-50) !important;
+  color: var(--gray-500) !important;
+  margin-top: -.625rem;
+}
+
 ::-webkit-scrollbar {
   width: 12px;
   height: 12px;

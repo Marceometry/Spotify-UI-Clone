@@ -11,6 +11,7 @@ const USER_PLAYLISTS_ENDPOINT = 'https://api.spotify.com/v1/users/lhg9s64w62qlvi
 const FEATURED_PLAYLISTS_ENDPOINT = 'https://api.spotify.com/v1/browse/featured-playlists'
 const PLAYLIST_ENDPOINT = 'https://api.spotify.com/v1/playlists/' // + {playlist_id}
 const ARTISTS_ENDPOINT = 'https://api.spotify.com/v1/me/following?type=artist'
+const TRACK_ENDPOINT = 'https://api.spotify.com/v1/tracks/'
 const searchEndpoint = new URL("https://api.spotify.com/v1/search?type=album,artist,playlist,track&limit=8")
 // const NOW_PLAYING_ENDPOINT = 'https://api.spotify.com/v1/me/player/currently-playing'
 // const TOP_TRACKS_ENDPOINT = 'https://api.spotify.com/v1/me/top/tracks'
@@ -68,6 +69,18 @@ export const search = async (params: string) => {
   }
 
   return data
+}
+
+export const getTrack = async (id: string) => {
+  const { access_token } = await getAccessToken()
+
+  const response = await fetch(TRACK_ENDPOINT + id, {
+    headers: {
+      Authorization: `Bearer ${access_token}`
+    }
+  })
+
+  return response.json()
 }
 
 export const getArtists = async (limit) => {

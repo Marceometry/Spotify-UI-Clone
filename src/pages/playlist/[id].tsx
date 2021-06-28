@@ -86,7 +86,6 @@ export default function Playlist({ playlist }) {
                                 index={key + 1}
                                 track={{
                                     id: item.track.id,
-                                    url: item.track.href,
                                     name: item.track.name,
                                     artists: item.track.artists.map(artist => {
                                         return {

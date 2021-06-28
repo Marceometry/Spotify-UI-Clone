@@ -13,7 +13,6 @@ type Artist = {
 
 type Track = {
     id: string
-    url: string
     name: string
     artists: Artist[]
     album: ALbum
