@@ -81,17 +81,29 @@ export default function Playlist({ playlist }) {
                     </div>
 
                     <ul>
-                        {playlist.tracks.items.map(((item, key) => (
+                        {playlist.tracks.items.map((item, key) => (
                             <TrackRow key={key}
-                                index={key}
-                                name={item.track.name}
-                                artists={item.track.artists}
-                                albumImg={item.track.album.images[0].url}
-                                album={item.track.album.name}
-                                addedAt={item.added_at}
-                                duration={item.track.duration_ms}
+                                index={key + 1}
+                                track={{
+                                    id: item.track.id,
+                                    url: item.track.href,
+                                    name: item.track.name,
+                                    artists: item.track.artists.map(artist => {
+                                        return {
+                                            name: artist.name,
+                                            id: artist.id
+                                        }
+                                    }) ,
+                                    album: {
+                                        id: item.track.album.id,
+                                        name: item.track.album.name,
+                                        img: item.track.album.images[0].url
+                                    },
+                                    addedAt: item.added_at,
+                                    duration: item.track.duration_ms,
+                                }}
                             />
-                        )))}
+                        ))}
                     </ul>
                 </div>
             </section>

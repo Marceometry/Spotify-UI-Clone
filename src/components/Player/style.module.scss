@@ -10,13 +10,23 @@
     position: absolute;
     bottom: 0;
 
-    .song, .volume {
+    .track, .volume {
         width: 25%;
     }
 
-    .song {
+    .track {
         display: flex;
         align-items: center;
+
+        > div:first-child {
+            background: var(--gray-30);
+            
+            .placeholderImg {
+                width: 50%!important;
+                border-radius: 0!important;
+                transform: scale(.6);
+            }
+        }
 
         .info {
             margin-left: 1rem;

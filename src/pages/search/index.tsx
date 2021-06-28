@@ -17,7 +17,7 @@ export default function Search() {
       {!isInputEmpty && (
         <>
 
-          <div className={searchStyles.tracks}>
+          {/* <div className={searchStyles.tracks}>
             <h1>Músicas</h1>
             <ul>
               {searchResult.tracksResult.items.slice(0, 5).map((item, key) => (
@@ -30,8 +30,8 @@ export default function Search() {
                   duration={item.duration_ms}
                 />
               ))}
-            </ul>
-          </div>
+            </ul> */}
+          {/* </div> */}
 
         <CardsRow data={searchResult.artistsResult} />
         <CardsRow data={searchResult.albumsResult} />

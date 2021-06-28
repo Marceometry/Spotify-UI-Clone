@@ -1,11 +1,29 @@
-import { useState, createContext, useContext, ReactNode, useCallback } from "react"
-import debounce from "lodash.debounce"
+import { useState, createContext, useContext, ReactNode } from "react"
+
+type ALbum = {
+    id: string
+    name: string
+    img: string
+}
+
+type Artist = {
+    id: string
+    name: string
+}
+
+type Track = {
+    id: string
+    url: string
+    name: string
+    artists: Artist[]
+    album: ALbum
+    addedAt: string
+    duration: number
+}
 
 type PlayerContextType = {
-    currentTrackId: string
-    currentTrackUrl: string
-    setCurrentTrackId: (id: string) => void
-    setCurrentTrackUrl: (id: string) => void
+    currentTrack: Track
+    setCurrentTrack: (track: Track) => void
 }
 
 type PlayerContextProviderProps = {
@@ -15,27 +33,14 @@ type PlayerContextProviderProps = {
 export const PlayerContext = createContext({} as PlayerContextType)
 
 export function PlayerContextProvider({ children }: PlayerContextProviderProps) {
-    const [currentTrackId, setCurrentTrackId] = useState('')
-    const [currentTrackUrl, setCurrentTrackUrl] = useState('')
-
-    // const debouncedSearch = useCallback(
-    //     debounce(value => 
-    //         search(value).then(response => {
-    //         setSearchResult(response),
-    //         setIsInputEmpty(false)
-    //         }),
-    //         400
-    //     ), [],
-    // )
+    const [currentTrack, setCurrentTrack] = useState({} as Track)
 
     return (
         <PlayerContext.Provider value={{
-            currentTrackId,
-            setCurrentTrackId,
-            currentTrackUrl,
-            setCurrentTrackUrl
+            currentTrack,
+            setCurrentTrack
         }}>
-            { children }
+            {children}
         </PlayerContext.Provider>
     )
 }

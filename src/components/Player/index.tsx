@@ -1,18 +1,20 @@
-import { useState, useRef, useEffect } from 'react'
+import { useState, useRef } from 'react'
 import Image from 'next/image'
-import { PlayCircleFilled, RepeatRounded, ShuffleRounded, SkipPreviousRounded, SkipNextRounded, VolumeUpRounded, PauseCircleFilled, RepeatOneRounded } from '@material-ui/icons'
 import Slider from "rc-slider"
 import "rc-slider/assets/index.css"
+
+import { PlayCircleFilled, RepeatRounded, ShuffleRounded, SkipPreviousRounded, SkipNextRounded, VolumeUpRounded, PauseCircleFilled, RepeatOneRounded } from '@material-ui/icons'
+import { usePlayer } from '../../contexts/PlayerContext'
+
 import durationToTimeString from '../../utils/durationToTimeString'
+import artistsNamesToString from '../../utils/artistsNamesToString'
 
 import styles from './style.module.scss'
-import { usePlayer } from '../../contexts/PlayerContext'
 
 export default function Player() {
     const audioRef = useRef<HTMLAudioElement>(null)
     const {
-      currentTrackUrl,
-      setCurrentTrackUrl
+      currentTrack
     } = usePlayer()
 
     const [progress, setProgress] = useState(0)
@@ -21,12 +23,6 @@ export default function Player() {
 
     const [isPlaying, setIsPlaying] = useState(false)
     const [isLooping, setIsLooping] = useState(false)
-    const [test, setTest] = useState(false)
-
-    useEffect(() => {
-      setCurrentTrackUrl('/enter-sandman-acapella.mp3')
-      setTest(true)
-    }, [])
 
     function setupProgressListener() {
       audioRef.current.currentTime = 0
@@ -78,19 +74,22 @@ export default function Player() {
 
     return (
         <div className={styles.player}>
-            <div className={styles.song}>
-                <Image width={56} height={56} src="/black-album-paint.png" alt="Álbum" />
+            <div className={styles.track}>
+                <Image width={56} height={56} alt="Álbum"
+                  className={!currentTrack.album?.img ? styles.placeholderImg : ''}
+                  src={currentTrack.album?.img ? currentTrack.album.img : '/music-note.png'}
+                />
 
                 <div className={styles.info}>
-                    <p>Enter Sandman (Acapella Cover)</p>
-                    <span>Metallica</span>
+                    <p>{currentTrack.name}</p>
+                    <span>{artistsNamesToString(currentTrack.artists)}</span>
                 </div>
 
-                {test && (
+                {currentTrack.id && (
                   <audio
                       ref={audioRef}
                       onLoadedMetadata={setupProgressListener}
-                      src={currentTrackUrl}
+                      src={currentTrack.url}
                       loop={isLooping}
                       onPlay={() => setIsPlaying(true)}
                       onPause={() => setIsPlaying(false)}

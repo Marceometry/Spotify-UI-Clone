@@ -1,47 +1,68 @@
+import { useEffect, useState } from 'react'
 import { format, parseISO } from 'date-fns'
 import ptBR from 'date-fns/locale/pt-BR'
-import { useEffect, useState } from 'react'
+
+import { usePlayer } from '../../contexts/PlayerContext'
+import artistsNamesToString from '../../utils/artistsNamesToString'
 import durationToTimeString from '../../utils/durationToTimeString'
+
 import styles from './style.module.scss'
 
 type TrackRowProps = {
-  key: number
   index: number
+  track: Track
+}
+
+type ALbum = {
+  id: string
   name: string
-  artists: [{ name: string }]
-  albumImg: string
-  album: string
-  addedAt?: string
+  img: string
+}
+
+type Artist = {
+  id: string
+  name: string
+}
+
+type Track = {
+  id: string
+  url: string
+  name: string
+  artists: Artist[]
+  album: ALbum
+  addedAt: string
   duration: number
 }
 
-export default function TrackRow({index, name, artists, albumImg, album, addedAt, duration}: TrackRowProps) {
+export default function TrackRow({ index, track }: TrackRowProps) {
   const [stringArtists, setStringArtists] = useState('')
+  const { setCurrentTrack } = usePlayer()
+  const {
+    name,
+    artists,
+    album,
+    addedAt,
+    duration
+  } = track
 
   useEffect(() => {
-    let artistsArray = []
+    setStringArtists(artistsNamesToString(artists))
+  }, [artists])
 
-    for (let i = 0; i < artists.length; i++) {
-      artistsArray.push(artists[i].name)
-    }
-
-    setStringArtists(artistsArray.join(", "))
-  })
-
-    return (
-      <li className={styles.song}>
-          <span className={styles.position}>{index + 1}</span>
-          <button className={styles.play}></button>
-          <span>
-              <img src={albumImg} alt="Álbum" />
-              <div>
-                  <strong> {name} </strong>
-                  <p> {stringArtists} </p>
-              </div>
-          </span>
-          <span className={styles.album}> {album} </span>
-          {addedAt && <span> {format(parseISO(addedAt), 'dd MMM yyyy', { locale: ptBR })} </span>}
-          <span> {durationToTimeString(duration / 1000)} </span>
-      </li>
-    )
+  return (
+    <li className={styles.track}>
+      <span className={styles.position}>{index}</span>
+      <button className={styles.play} onClick={() => setCurrentTrack(track)}></button>
+      <span>
+        <img src={album.img} alt="Álbum" />
+        <div>
+          <strong> {name} </strong>
+          <p> {stringArtists} </p>
+        </div>
+      </span>
+      <span className={styles.album}> {album.name} </span>
+      {addedAt && <span> {format(parseISO(addedAt), 'dd MMM yyyy', { locale: ptBR })} </span>}
+      <span> {durationToTimeString(duration / 1000)} </span>
+    </li>
+  )
 }

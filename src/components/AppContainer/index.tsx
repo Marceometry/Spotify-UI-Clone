@@ -11,16 +11,18 @@ export default function AppContainer({ children }) {
   const ref = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    const scrollListener = () => {
-      if (ref.current.scrollTop > 25) {
-        setNavHasBG(true)
-      } else {
-        setNavHasBG(false)
+    if (ref) {
+      const scrollListener = () => {
+        if (ref.current.scrollTop > 25) {
+          setNavHasBG(true)
+        } else {
+          setNavHasBG(false)
+        }
       }
-    }
-    ref.current.addEventListener('scroll', scrollListener)
-    return () => {
-      ref.current.removeEventListener('scroll', scrollListener)
+      ref.current.addEventListener('scroll', scrollListener)
+      return () => {
+        ref.current.removeEventListener('scroll', scrollListener)
+      }
     }
   }, [ref])
   

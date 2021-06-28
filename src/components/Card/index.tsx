@@ -4,20 +4,14 @@ import reduceStringLength from '../../utils/reduceStringLength'
 import PlayArrowGreen from '../PlayArrowGreen'
 import styles from './style.module.scss'
 import { useEffect, useState } from 'react'
+import artistsNamesToString from '../../utils/artistsNamesToString'
 
 export default function Card({ item, type }) {
     const [artists, setArtists] = useState('')
 
     useEffect(() => {
-        if (type === 'albums') {
-            let artistsArray = item.artists
-            let artists = []
-    
-            for (let j = 0; j < artistsArray.length; j++) {
-                artists.push(artistsArray[j].name)
-            }
-    
-            setArtists(artists.join(", "))
+        if (type === 'albums') {   
+            setArtists(artistsNamesToString(item.artists))
         }
     }, [])
 
