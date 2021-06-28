@@ -1,0 +1,52 @@
+.song {
+    border-radius: 5px;
+    transition-property: color, background;
+    transition-duration: .2s;
+
+    &:hover {
+        background: rgba(68, 68, 68, 0.45);
+
+        .album, p {
+            color: var(--white)
+        }
+
+        .position {
+            display: none;
+        }
+
+        .play {
+            display: flex;
+        }
+    }
+
+    .play {
+        height: 0;
+        margin: auto 0;
+        border-bottom: 7px solid transparent;
+        border-top: 7px solid transparent;
+        border-left: 7px solid var(--white);
+        transition: border .2s;
+        display: none;
+    }
+
+    span {
+        display: flex;
+        align-items: center;
+
+        &.position {
+            font-weight: 600;
+        }
+
+        img {
+            width: 2.5rem;
+            height: 2.5rem;
+            margin-right: 1rem;
+        }
+
+        strong {
+            font-size: .875rem;
+            color: var(--white);
+            display: block;
+        }   
+    }
+}

@@ -48,8 +48,9 @@ type Playlist = {
 type Track = {
     id: string
     name: string
-    artists: Artist[]
+    artists: [{ name: string }]
     album: ALbum
+    duration_ms: number
 }
 
 type Image = {

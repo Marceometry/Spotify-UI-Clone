@@ -13,34 +13,21 @@ import { FavoriteBorderOutlined, MoreHoriz, Schedule } from '@material-ui/icons'
 import PlayArrowGreen from '../../components/PlayArrowGreen'
 
 import styles from '../../css/Playlist.module.scss'
+import TrackRow from '../../components/TrackRow'
 
 export default function Playlist({ playlist }) {
     const [playlistDuration, setPlaylistDuration] = useState(0)
-    const [artists, setArtists] = useState([])
 
     useEffect(() => {
         if (!playlist.tracks.items) {
             return
         } else {
             let duration = 0
-            let artists = []
     
             playlist.tracks.items.map(item => (
                 duration += item.track.duration_ms
             ))
-    
-            for (let i = 0; i < playlist.tracks.items.length; i++) {
-                let artistsArray = playlist.tracks.items[i].track.artists
-                let artistsNames = []
-    
-                for (let j = 0; j < artistsArray.length; j++) {
-                    artistsNames.push(artistsArray[j].name)
-                }
-    
-                artists.push(artistsNames.join(", "))
-            }
-    
-            setArtists(artists)
+
             setPlaylistDuration(duration / 1000)
         }
     }, [playlist])
@@ -95,20 +82,15 @@ export default function Playlist({ playlist }) {
 
                     <ul>
                         {playlist.tracks.items.map(((item, key) => (
-                            <li key={key}>
-                                <span className={styles.position}>{key + 1}</span>
-                                <span className={styles.play}></span>
-                                <span>
-                                    <img src={item.track.album.images[0].url} alt="Álbum" />
-                                    <div>
-                                        <strong> {item.track.name} </strong>
-                                        <p> {artists[key]} </p>
-                                    </div>
-                                </span>
-                                <span className={styles.album}> {item.track.album.name} </span>
-                                <span> {format(parseISO(item.added_at), 'dd MMM yyyy', { locale: ptBR })} </span>
-                                <span> {durationToTimeString(item.track.duration_ms / 1000)} </span>
-                            </li>
+                            <TrackRow key={key}
+                                index={key}
+                                name={item.track.name}
+                                artists={item.track.artists}
+                                albumImg={item.track.album.images[0].url}
+                                album={item.track.album.name}
+                                addedAt={item.added_at}
+                                duration={item.track.duration_ms}
+                            />
                         )))}
                     </ul>
                 </div>
