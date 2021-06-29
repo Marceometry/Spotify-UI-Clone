@@ -34,12 +34,12 @@ export default function Player() {
     
     currentTrack.url ? (
       setCurrentTrackUrl(currentTrack.url)
-    ) : (
+    ) : currentTrack.id ? (
       setProgress(0),
       setIsPlaying(false),
       setCurrentTrackUrl(''),
       toast.error('Amostra de áudio não encontrada')
-    )
+    ) : ''
   }, [currentTrack])
 
   useEffect(() => {

@@ -48,8 +48,10 @@ type Playlist = {
 type Track = {
     id: string
     name: string
-    artists: [{ name: string }]
+    artists: Artist[]
     album: ALbum
+    preview_url: string
+    added_at: string
     duration_ms: number
 }
 
