@@ -1,8 +1,8 @@
 import querystring from 'querystring'
 
-const client_id = '73bc6779890243ae9c4bed89800d6214'
-const client_secret = '0864880a9d5446c39c6421f84c409bfb'
-const refresh_token = 'AQAlXbQKVznQ_KexhMqKXcqViamT8i6Le5uWt_FTdqkpR3koEaV7PHklGV_lOenzdmnfJ3vb9nvwtW_r3sLzdLP8t51v1UlGERHzG1-iB6Hef6QccAiJQD9_afZ6bEenNMY'
+const client_id = process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_ID
+const client_secret = process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_SECRET
+const refresh_token = process.env.NEXT_PUBLIC_SPOTIFY_REFRESH_TOKEN
 
 const basic = Buffer.from(`${client_id}:${client_secret}`).toString('base64')
 const TOKEN_ENDPOINT = `https://accounts.spotify.com/api/token`
