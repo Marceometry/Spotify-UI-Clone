@@ -6,7 +6,7 @@ import styles from "./style.module.scss"
 
 export default function SearchInput() {
   const inputRef = useRef<HTMLInputElement>(null)
-  const { searchText, setSearchText, setIsInputEmpty, debouncedSearch } = useSearch()
+  const { searchText, setSearchText, setIsInputEmpty, debouncedSearch, setIsLoading } = useSearch()
 
   useEffect(() => {
     inputRef.current && inputRef.current.focus()
@@ -16,8 +16,10 @@ export default function SearchInput() {
     setSearchText(value)
     if (value === '') {
       setIsInputEmpty(true)
+      setIsLoading(false)
       return
     }
+    setIsLoading(true)
     debouncedSearch(value)
   }
 
