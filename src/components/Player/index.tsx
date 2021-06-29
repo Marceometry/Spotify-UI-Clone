@@ -29,31 +29,21 @@ export default function Player() {
   const [currentTrackUrl, setCurrentTrackUrl] = useState('')
   const [isLooping, setIsLooping] = useState(false)
 
-  useEffect(() => {    
-    audioRef.current && (
-      audioRef.current.currentTime = 0,
-      audioRef.current.pause()
+  useEffect(() => {
+    toast.dismiss()
+    
+    currentTrack.url ? (
+      setCurrentTrackUrl(currentTrack.url)
+    ) : (
+      setProgress(0),
+      setIsPlaying(false),
+      setCurrentTrackUrl(''),
+      toast.error('Amostra de áudio não encontrada')
     )
-
-    const getTrackInfo = async () => {
-      toast.dismiss()
-      const loader = toast.loading('Carregando...')
-      const track = await getTrack(currentTrack.id)
-      toast.dismiss(loader)
-
-      track.preview_url ? (
-        setCurrentTrackUrl(track.preview_url)
-      ) : (
-        setCurrentTrackUrl(''),
-        setDuration(0),
-        toast.error('Amostra de áudio não encontrada')
-      )
-    }
-    currentTrack.id && getTrackInfo()
   }, [currentTrack])
 
   useEffect(() => {
-    currentTrackUrl && audioRef.current && audioRef.current.play()
+    currentTrackUrl && audioRef.current.play()
   }, [currentTrackUrl])
 
   function setupProgressListener() {
@@ -109,17 +99,15 @@ export default function Player() {
           <span>{artistsNamesToString(currentTrack.artists)}</span>
         </div>
 
-        {currentTrackUrl ? (
-          <audio
-            ref={audioRef}
-            onLoadedMetadata={setupProgressListener}
-            src={currentTrackUrl}
-            loop={isLooping}
-            onPlay={() => setIsPlaying(true)}
-            onPause={() => setIsPlaying(false)}
-            onEnded={() => setIsPlaying(false)}
-          />
-        ) : ''}
+        <audio
+          ref={audioRef}
+          onLoadedMetadata={setupProgressListener}
+          src={currentTrackUrl}
+          loop={isLooping}
+          onPlay={() => setIsPlaying(true)}
+          onPause={() => setIsPlaying(false)}
+          onEnded={() => setIsPlaying(false)}
+        />
       </div>
 
       <div className={styles.controls}>
@@ -173,7 +161,7 @@ export default function Player() {
             />
           </div>
 
-          <span>{durationToTimeString(duration)}</span>
+          <span>{currentTrackUrl ? durationToTimeString(duration) : '00:00'}</span>
         </div>
       </div>
 

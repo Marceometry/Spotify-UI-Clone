@@ -13,6 +13,7 @@ type Artist = {
 
 type Track = {
     id: string
+    url: string
     name: string
     artists: Artist[]
     album: ALbum
@@ -41,7 +42,7 @@ export function PlayerContextProvider({ children }: PlayerContextProviderProps) 
     const [isPlaying, setIsPlaying] = useState(false)
 
     function handlePlay() {
-      if (!audioRef.current) {
+      if (!currentTrack.url) {
         return
       }
   

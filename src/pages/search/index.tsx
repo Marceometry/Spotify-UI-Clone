@@ -17,6 +17,8 @@ export default function Search() {
       {!isInputEmpty && (
         <>
 
+        {console.log(searchResult.tracksResult.items)}
+
           {/* <div className={searchStyles.tracks}>
             <h1>Músicas</h1>
             <ul>
