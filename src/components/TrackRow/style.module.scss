@@ -20,16 +20,17 @@
     }
 
     .play {
-        height: 0;
+        height: 12px;
         margin: auto 0;
-        border-bottom: 7px solid transparent;
-        border-top: 7px solid transparent;
-        border-left: 7px solid var(--white);
-        transition: border .2s;
+        border-color: transparent transparent transparent var(--white);
+        border-width: 7px 0 7px 7px;
+        border-style: solid;
+        transition: all .2s;
         display: none;
 
         &.pause {
-            border-left: 7px solid var(--green);
+            border-style: double;
+            border-width: 0 0 0 8px;
         }
     }
 
