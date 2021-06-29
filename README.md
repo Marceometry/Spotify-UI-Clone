@@ -29,6 +29,13 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 O projeto consiste em um clone da interface do Web Player do [Spotify](https://open.spotify.com), conectando com a API do Spotify para popular o site.
 
+## 🚀 Funcionalidades
+
+- `UI Clone` de várias telas do Spotify
+- Conexão com a `API do Spotify` para pegar informações de músicas, artistas, etc.
+- `Player de música` com controles personalizados que pega as amostras de 30 segundos liberadas pelo Spotify
+- Mecanismo de busca `com debounce` que pega dados de músicas, artistas, álbuns e paylists
+
 ## 🚀 Como executar
 
 - Clone o repositório
