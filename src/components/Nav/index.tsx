@@ -15,15 +15,15 @@ export default function Nav({ hasBG }) {
   function openUserPopUp() {
     setIsUserPopUpOpen(!isUserPopUpOpen)
   }
+  
+  function handleClickOutside(event) {
+    if (popupRef.current && !popupRef.current.contains(event.target)) {
+      setIsUserPopUpOpen(false)
+    }
+  }
 
   useEffect(() => {
     if (popupRef.current) {
-      function handleClickOutside(event) {
-        if (popupRef.current && !popupRef.current.contains(event.target)) {
-          setIsUserPopUpOpen(false)
-        }
-      }
-  
       document.addEventListener("mousedown", handleClickOutside)
       return () => {
         document.removeEventListener("mousedown", handleClickOutside)
