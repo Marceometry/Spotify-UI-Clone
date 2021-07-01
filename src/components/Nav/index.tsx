@@ -31,13 +31,21 @@ export default function Nav({ hasBG }) {
     }
   }, [popupRef])
 
+  function goBack() {
+    router.back()
+  }
+
+  function goForward() {
+    window.history.forward()
+  }
+
   return (
     <nav className={`${styles.nav} ${hasBG ? styles.bg : ''}`}>
       <div className={styles.router}>
-        <button>
+        <button onClick={goBack}>
           <NavigateBefore />
         </button>
-        <button disabled>
+        <button onClick={goForward}>
           <NavigateNext />
         </button>
 
