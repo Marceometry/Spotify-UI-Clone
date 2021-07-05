@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import { GetServerSideProps } from 'next'
 import { getArtists, getFeaturedPlaylists, getUserPlaylists } from '../api/spotifyAPI'
-import Card from '../../components/Card'
+import Card from '../../components/CardsRow/Card'
 
 import styles from '../../css/List.module.scss'
 

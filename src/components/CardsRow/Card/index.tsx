@@ -1,10 +1,10 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import reduceStringLength from '../../utils/reduceStringLength'
-import PlayArrowGreen from '../PlayArrowGreen'
+import reduceStringLength from '../../../utils/reduceStringLength'
+import PlayArrowGreen from '../../PlayArrowGreen'
 import styles from './style.module.scss'
 import { useEffect, useState } from 'react'
-import artistsNamesToString from '../../utils/artistsNamesToString'
+import artistsNamesToString from '../../../utils/artistsNamesToString'
 
 export default function Card({ item, type }) {
     const [artists, setArtists] = useState('')
@@ -17,7 +17,12 @@ export default function Card({ item, type }) {
 
     return (
         <div className={styles.cardContainer}>
-            <Link href={type === "playlists" ? `/playlist/${item.id}` : '/'}>
+            <Link href={type === "playlists" ?
+                `/playlist/${item.id}`
+                : type === "artists" ?
+                `/artist/${item.id}`
+                : `/`
+            }>
                 <a></a>
             </Link>
             

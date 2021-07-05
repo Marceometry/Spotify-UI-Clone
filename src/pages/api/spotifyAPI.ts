@@ -10,6 +10,7 @@ const TOKEN_ENDPOINT = `https://accounts.spotify.com/api/token`
 const USER_PLAYLISTS_ENDPOINT = 'https://api.spotify.com/v1/users/lhg9s64w62qlvitz3awnfx1ii/playlists'
 const FEATURED_PLAYLISTS_ENDPOINT = 'https://api.spotify.com/v1/browse/featured-playlists'
 const PLAYLIST_ENDPOINT = 'https://api.spotify.com/v1/playlists/' // + {playlist_id}
+const ARTIST_ENDPOINT = 'https://api.spotify.com/v1/artists/' // + {artist_id}
 const ARTISTS_ENDPOINT = 'https://api.spotify.com/v1/me/following?type=artist'
 const TRACK_ENDPOINT = 'https://api.spotify.com/v1/tracks/'
 const searchEndpoint = new URL("https://api.spotify.com/v1/search?type=album,artist,playlist,track&limit=8")
@@ -149,6 +150,18 @@ export const getPlaylist = async (id) => {
   const { access_token } = await getAccessToken()
 
   const response = await fetch(PLAYLIST_ENDPOINT + id, {
+    headers: {
+      Authorization: `Bearer ${access_token}`
+    }
+  })
+
+  return response.json()
+}
+
+export const getArtist = async (id) => {
+  const { access_token } = await getAccessToken()
+
+  const response = await fetch(ARTIST_ENDPOINT + id, {
     headers: {
       Authorization: `Bearer ${access_token}`
     }
