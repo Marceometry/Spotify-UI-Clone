@@ -3,11 +3,7 @@ import { GetServerSideProps } from 'next'
 import { useEffect, useState } from 'react'
 import { getPlaylist } from '../api/spotifyAPI'
 
-import { format, parseISO } from 'date-fns'
-import ptBR from 'date-fns/locale/pt-BR'
-
 import playlistDurationToString from '../../utils/playlistDurationToString'
-import durationToTimeString from '../../utils/durationToTimeString'
 
 import { FavoriteBorderOutlined, MoreHoriz, Schedule } from '@material-ui/icons'
 import PlayArrowGreen from '../../components/PlayArrowGreen'
