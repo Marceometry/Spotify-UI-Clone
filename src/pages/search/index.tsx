@@ -3,7 +3,7 @@ import { useSearch } from '../../contexts/SearchContext'
 import TrackRow from '../../components/TrackRow'
 import CardsRow from '../../components/CardsRow'
 import styles from '../../css/Home.module.scss'
-import searchStyles from '../../css/Search.module.scss'
+import searchStyles from '../../css/Tracks.module.scss'
 
 export default function Search() {
   const { searchResult, isInputEmpty, isLoading } = useSearch()
@@ -33,6 +33,7 @@ export default function Search() {
              <div className={searchStyles.tracks}>
                <h1>Músicas</h1>
                <ul>
+                 {console.log(searchResult.tracksResult)}
                  {searchResult.tracksResult.items.slice(0, 5).map((item, key) => (
                    <TrackRow key={key}
                      index={key + 1}

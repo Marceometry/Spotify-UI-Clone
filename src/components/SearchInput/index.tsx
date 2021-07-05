@@ -35,7 +35,7 @@ export default function SearchInput() {
       <Search className={styles.searchIcon} />
 
       <input ref={inputRef} type="text" spellCheck="false"
-        maxLength={80} autoCorrect="off" name="search"
+        maxLength={80} autoCorrect="off" name="search" autoFocus
         placeholder="Artistas, músicas ou playlists" value={searchText}
         onChange={() => handleChange(inputRef.current.value)}
       />
