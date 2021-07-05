@@ -3,7 +3,7 @@ import Image from "next/image"
 import { useRouter } from "next/router"
 import { useState, useEffect, useRef } from "react"
 import { NavigateBefore, NavigateNext, Person } from "@material-ui/icons"
-import SearchInput from "../SearchInput"
+import SearchInput from "./SearchInput"
 
 import styles from "./style.module.scss"
 
@@ -53,7 +53,7 @@ export default function Nav({ hasBG }) {
       </div>
 
       <div>
-        {router.pathname === '/' && (
+        {router.pathname !== '/search' && (
           <Link href="/">
             <a className={styles.upgrade}>FAÇA UPGRADE</a>
           </Link>
