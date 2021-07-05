@@ -10,8 +10,6 @@ export default function Search() {
 
   if (isLoading) return <div className="loaderContainer"><div className="loader"></div></div>
 
-
-
   return (
     <div className={styles.rowsContainer}>
       <Head>
@@ -33,7 +31,6 @@ export default function Search() {
              <div className={searchStyles.tracks}>
                <h1>Músicas</h1>
                <ul>
-                 {console.log(searchResult.tracksResult)}
                  {searchResult.tracksResult.items.slice(0, 5).map((item, key) => (
                    <TrackRow key={key}
                      index={key + 1}
