@@ -38,7 +38,7 @@ export default function Player() {
       setProgress(0),
       setIsPlaying(false),
       setCurrentTrackUrl(''),
-      toast.error('Amostra de áudio não encontrada')
+      toast.error('Amostra de áudio não disponível')
     ) : ''
   }, [currentTrack])
 
